@@ -10,13 +10,22 @@ namespace section1
     {
         static void Main( string[] args )
         {
-            // DisplayMenu();
-            playWithStrings();
+
+            bool notQuit;
+            do
+            {
+               notQuit = DisplayMenu();
+            } while (notQuit);
+
+
+
+            //playWithStrings();
+
         }
 
         private static void playWithStrings()
         {
-            string hoursString  = "10A";
+            string hoursString = "10A";
             //int hours = Int32.Parse(hoursString);
             //int hours;
             //bool result = Int32.TryParse(hoursString,out  hours);
@@ -31,59 +40,128 @@ namespace section1
             string filePath = "C:\\Temp\\Test";
 
             //Verbatim strings 
-             filePath = @"C:\Temp\Test";
+            filePath = @"C:\Temp\Test";
 
             //Concat
             string FirstName = "Bob";
             string lastName = "Smith";
             string name = FirstName + "  " + lastName;
+
+            //strings are immutable - this produces a new string 
+            //name = "Hello " + name;
+            Console.WriteLine("Hello" + name);
+            Console.WriteLine("Hello {1}", FirstName, lastName);
+            string str = String.Format("Hello {1}", FirstName, lastName);
+            Console.WriteLine(str);
+
+
+            //Approach 4
+            Console.WriteLine($"Hello  {FirstName} {lastName} ");
+
+            string missing = null;
+            string empty = "";
+            string empty2 = String.Empty;
+
+            //Checking for empty strings
+            //if (firstName.Lenght == 0)
+            // if (FirstName!= null && FirstName != "")
+            if (!String.IsNullOrEmpty(FirstName))
+                Console.WriteLine(FirstName);
+
+            //Other stuff
+            string upperName = FirstName.ToUpper();
+            string lowerName = FirstName.ToLower();
+
+            //Comparison
+            bool areEqual = FirstName == lastName;
+
+            areEqual = FirstName.ToLower() == lastName.ToLower();
+            areEqual = String.Compare(FirstName, lastName, true) == 0;
+
+            bool startsWithA = FirstName.StartsWith("A");
+            bool endsWithA = FirstName.EndsWith("A");
+            bool hasA = FirstName.IndexOf("A") >= 0;
+            String subset = FirstName.Substring(4);
+
+            //Clean up
+            string cleanMe = FirstName.Trim(); //trimstart, TrimEnd
+            string makeLonger = FirstName.PadLeft(20); //PadRight
+
+
         }
 
-        private static void DisplayMenu()
+        private static bool DisplayMenu()
         {
-            Console.WriteLine("A)dd Movie");
-            Console.WriteLine("E)dit Movie");
-            Console.WriteLine("D)elete Movie");
-            Console.WriteLine("v)iew Movies");
-            Console.WriteLine("Q)uit");
-
-
-
-            string input = Console.ReadLine();
-            switch (input[0])
+            while (true)
             {
+                Console.WriteLine("A)dd Movie");
+                Console.WriteLine("E)dit Movie");
+                Console.WriteLine("D)elete Movie");
+                Console.WriteLine("v)iew Movies");
+                Console.WriteLine("Q)uit");
 
-                case 'A': AddMovie(); break ;
-                case 'E': EditMovie(); break;
-                case 'D': DeleteMovie(); break;
-                case 'V': ViewMovies();break;
-                case 'Q': ; break;
 
 
-                default: Console.WriteLine("Please enter a valid value."); break;
+                string input = Console.ReadLine();
+                switch (input[0])
+
+
+
+
+
+                {
+
+
+                    case 'a':
+                    case 'A':
+                    AddMovie();
+                    return true;
+                    case 'e':
+                    case 'E':
+                    EditMovie();
+                    return true;
+                    case 'd':
+                    case 'D':
+                    DeleteMovie();
+                    return true;
+                    case 'v':
+                    case 'V':
+                    ViewMovies();
+                    return true;
+                    case 'q':
+                    case 'Q':
+                    ;
+                    return false;
+
+
+                    default:
+                    Console.WriteLine("Please enter a valid value.");
+                    break;
+                };
+
             };
-
-            
         }
 
         private static void ViewMovies()
         {
-            throw new NotImplementedException();
-        }
-
-        private static void EditMovie()
-        {
-            throw new NotImplementedException();
+            Console.WriteLine("ViewMovies");
         }
 
         private static void AddMovie()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("AddMovie");
+        }
+
+
+        private static void EditMovie()
+        {
+            Console.WriteLine("EditMovie");
         }
 
         private static void DeleteMovie()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("DeleteMovie");
         }
     }
+
 }
