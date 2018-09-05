@@ -8,6 +8,8 @@ namespace section1
 {
     class Program
     {
+        private static int minValue;
+
         static void Main( string[] args )
         {
 
@@ -161,6 +163,25 @@ namespace section1
         private static void DeleteMovie()
         {
             Console.WriteLine("DeleteMovie");
+        }
+
+        private static int ReadInt32( string message )
+
+
+        {
+            while (true)
+            {
+                Console.WriteLine(message);
+                string input = Console.ReadLine();
+
+                if (Int32.TryParse(input, out int result))
+                {
+                    if (result >= minValue)
+                        return result;
+                };
+
+                Console.WriteLine($"You must enter an integer value >= {minValue}");
+            };
         }
     }
 
