@@ -9,7 +9,7 @@ namespace PizzaCreator
     class Program
     {
 
-        static void Main( string[] args )
+        static void Main(string[] args)
         {
             bool notQuit;
             do
@@ -35,30 +35,31 @@ namespace PizzaCreator
                 {
                     case 'n':
                     case 'N':
-                    NewOrder();
-                    return true;
+                        NewOrder();
+                        return true;
 
                     case 'm':
                     case 'M':
-                    ModifyOrder();
-                    return true;
+                        ModifyOrder();
+                        return true;
 
                     case 'd':
                     case 'D':
-                    DisplayOrder();
-                    return true;
+                        DisplayOrder();
+                        return true;
 
 
 
                     case 'q':
                     case 'Q':
-                    Quit();
-                    return false;
+                        Quit();
+                        return false;
 
                     default:
 
-                    Console.WriteLine("Please enter a valid value");
-                    break;
+                        Console.WriteLine("Please enter a valid value");
+
+                        break;
                 };
             };
         }
@@ -84,18 +85,47 @@ namespace PizzaCreator
 
         }
         private static void SizeOrder()
-
         {
+            while (true)
+            {
+                Console.WriteLine("Size(one is required)");
+                Console.WriteLine("Small($5)");
+                Console.WriteLine("Meduim($6.25)");
+                Console.WriteLine("Large(8.75");
 
+                string input = Console.ReadLine();
+                switch (input[0])
+                {
+                    case '1':
+                        SmallPizza();
+
+                        return;
+
+                    case '2':
+                        MeduimPizza(); return;
+
+                    case '3':
+                        LargePizza(); return;
+
+
+
+                    default:
+
+                        Console.WriteLine("Please enter a valid value");
+
+                        break;
+                };
+            }
 
 
         }
-        private static void LargeSize()
+
+        private static void MeduimPizza()
         {
             throw new NotImplementedException();
         }
 
-        private static void MeduimPizza()
+        private static void LargePizza()
         {
             throw new NotImplementedException();
         }
@@ -104,25 +134,77 @@ namespace PizzaCreator
         {
             throw new NotImplementedException();
         }
-
     }
-    private void MeatOrder()
-    {
 
+
+
+
+
+    private static void MeatOrder()
+    {
         while (true)
+        {
+            Console.WriteLine("Meats(zero or more).Each option is $0.50 extra. The user can select or unselect the options until done");
+            Console.WriteLine("\t1. Bacon");
+            Console.WriteLine("\t1. Ham");
+            Console.WriteLine("\t1.Pepperoni");
+            Console.WriteLine("\t1.Sausage");
 
-        Console.WriteLine("\t1. Bacon");
+            string input = Console.ReadLine();
+            switch (input[0])
+            {
+                case '1':
+                    BaconMeats();return;
+
+                case '2':
+                    HamMeats(); return;
+
+                case '3':
+                    PepperoniMeats(); return;
+
+                case '4':
+                    SausageMeats(); return;
+
+
+
+                default:
+
+                    Console.WriteLine("Please enter a valid value");
+
+                    break;
+
+            }
+
+        }
+
+
+       void SausageMeats()
+        {
+            throw new NotImplementedException();
+        }
+
+        void PepperoniMeats()
+        {
+            throw new NotImplementedException();
+        }
+
+        void HamMeats()
+        {
+            throw new NotImplementedException();
+        }
+
+        void BaconMeats()
+        {
+            throw new NotImplementedException();
+        }
+
     }
 
-    object ReadInt32( int v1, int v2 )
-    {
-        throw new NotImplementedException();
-    }
+    
 }
 
 
 
-  
 
 
 
@@ -141,6 +223,9 @@ namespace PizzaCreator
 
 
 
-    
-  
+
+
+
+
+
 
