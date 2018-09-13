@@ -9,7 +9,7 @@ namespace PizzaCreator
     class Program
     {
 
-        static void Main(string[] args)
+        static void Main( string[] args )
         {
             bool notQuit;
             do
@@ -35,30 +35,30 @@ namespace PizzaCreator
                 {
                     case 'n':
                     case 'N':
-                        NewOrder();
-                        return true;
+                    NewOrder();
+                    return true;
 
                     case 'm':
                     case 'M':
-                        ModifyOrder();
-                        return true;
+                    ModifyOrder();
+                    return true;
 
                     case 'd':
                     case 'D':
-                        DisplayOrder();
-                        return true;
+                    DisplayOrder();
+                    return true;
 
 
 
                     case 'q':
                     case 'Q':
-                        Quit();
-                            return false;
+                    Quit();
+                    return false;
 
                     default:
 
-                        Console.WriteLine("Please enter a valid value");
-                        break;
+                    Console.WriteLine("Please enter a valid value");
+                    break;
                 };
             };
         }
@@ -80,13 +80,87 @@ namespace PizzaCreator
 
         private static void NewOrder()
         {
-           
+            Console.WriteLine("Size(One is required");
+            Console.WriteLine("Small($5)");
+            Console.WriteLine("Meduim($6.25)");
+            Console.WriteLine("Large (8.75)");
+
+            string input = Console.ReadLine();
+            switch (input[0])
+            {
+                case '1':
+                SmallPizza();
+
+                return;
+
+                case '2':
+                MeduimPizza();
+                return;
+
+                case '3':
+                LargeSize();
+                return;
+
+                default:
+
+                Console.WriteLine("Please enter a valid value");
+                break;
+            };
+
+
         }
+
+        private static void LargeSize()
+        {
+            throw new NotImplementedException();
+        }
+
+        private static void MeduimPizza()
+        {
+            throw new NotImplementedException();
+        }
+
+        private static void SmallPizza()
+        {
+            throw new NotImplementedException();
+        }
+
+    }
+    private void MeatOrder()
+    {
+
+        while (true)
+
+        Console.WriteLine("\t1. Bacon");
+    }
+
+    object ReadInt32( int v1, int v2 )
+    {
+        throw new NotImplementedException();
     }
 }
 
 
 
+  
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
   
 
