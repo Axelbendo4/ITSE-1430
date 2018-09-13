@@ -80,36 +80,16 @@ namespace PizzaCreator
 
         private static void NewOrder()
         {
-            Console.WriteLine("Size(One is required");
-            Console.WriteLine("Small($5)");
-            Console.WriteLine("Meduim($6.25)");
-            Console.WriteLine("Large (8.75)");
+            Console.WriteLine("NewOrder");
 
-            string input = Console.ReadLine();
-            switch (input[0])
-            {
-                case '1':
-                SmallPizza();
+        }
+        private static void SizeOrder()
 
-                return;
+        {
 
-                case '2':
-                MeduimPizza();
-                return;
-
-                case '3':
-                LargeSize();
-                return;
-
-                default:
-
-                Console.WriteLine("Please enter a valid value");
-                break;
-            };
 
 
         }
-
         private static void LargeSize()
         {
             throw new NotImplementedException();
