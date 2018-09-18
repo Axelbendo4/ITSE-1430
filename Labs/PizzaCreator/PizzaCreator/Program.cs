@@ -81,33 +81,46 @@ namespace PizzaCreator
 
         private static void NewOrder()
         {
-            Console.WriteLine("NewOrder");
+            GetSizeOrder();
+            GetMeatToppings();
 
         }
-        private static void SizeOrder()
+
+        private static void GetMeatToppings()
+        {
+            Console.WriteLine("Do you want meats on your pizza?");
+            Console.WriteLine("1) for Yes or 2) for No.");
+            string input = Console.ReadLine();
+            
+            if (input == "1")
+            {
+                while (true)
+                {
+
+
+                }
+            }
+
+            
+        }
+
+        private static void GetSizeOrder()
         {
             while (true)
             {
                 Console.WriteLine("Size(one is required)");
-                Console.WriteLine("Small($5)");
-                Console.WriteLine("Meduim($6.25)");
-                Console.WriteLine("Large(8.75");
+                Console.WriteLine("1) Small($5)");
+                Console.WriteLine("2) Meduim($6.25)");
+                Console.WriteLine("3) Large(8.75");
 
                 string input = Console.ReadLine();
                 switch (input[0])
                 {
-                    case '1':
-                        SmallPizza();
+                    case '1': sizeOfPizza = "Small"; return;
 
-                        return;
+                    case '2': sizeOfPizza = "Meduim"; return;
 
-                    case '2':
-                        MeduimPizza(); return;
-
-                    case '3':
-                        LargePizza(); return;
-
-
+                    case '3': sizeOfPizza = "Large"; return;
 
                     default:
 
@@ -120,88 +133,24 @@ namespace PizzaCreator
 
         }
 
-        private static void MeduimPizza()
-        {
-            throw new NotImplementedException();
-        }
-
-        private static void LargePizza()
-        {
-            throw new NotImplementedException();
-        }
-
-        private static void SmallPizza()
-        {
-            throw new NotImplementedException();
-        }
+        static string sizeOfPizza;
+        bool meatToppings[] = new bool meatToppings[4];
     }
+}
 
 
 
 
-
-    private static void MeatOrder()
-    {
-        while (true)
-        {
-            Console.WriteLine("Meats(zero or more).Each option is $0.50 extra. The user can select or unselect the options until done");
-            Console.WriteLine("\t1. Bacon");
-            Console.WriteLine("\t1. Ham");
-            Console.WriteLine("\t1.Pepperoni");
-            Console.WriteLine("\t1.Sausage");
-
-            string input = Console.ReadLine();
-            switch (input[0])
-            {
-                case '1':
-                    BaconMeats();return;
-
-                case '2':
-                    HamMeats(); return;
-
-                case '3':
-                    PepperoniMeats(); return;
-
-                case '4':
-                    SausageMeats(); return;
-
-
-
-                default:
-
-                    Console.WriteLine("Please enter a valid value");
-
-                    break;
-
-            }
-
-        }
-
-
-       void SausageMeats()
-        {
-            throw new NotImplementedException();
-        }
-
-        void PepperoniMeats()
-        {
-            throw new NotImplementedException();
-        }
-
-        void HamMeats()
-        {
-            throw new NotImplementedException();
-        }
-
-        void BaconMeats()
-        {
-            throw new NotImplementedException();
-        }
-
-    }
 
     
-}
+
+
+       
+
+    
+
+    
+
 
 
 
