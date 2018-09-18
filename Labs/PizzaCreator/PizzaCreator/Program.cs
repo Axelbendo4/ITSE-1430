@@ -106,7 +106,9 @@ namespace PizzaCreator
 
         private static void GetSizeOrder()
         {
-            while (true)
+
+            bool flag = false;
+            while (!flag)
             {
                 Console.WriteLine("Size(one is required)");
                 Console.WriteLine("1) Small($5)");
@@ -116,11 +118,11 @@ namespace PizzaCreator
                 string input = Console.ReadLine();
                 switch (input[0])
                 {
-                    case '1': sizeOfPizza = "Small"; return;
+                    case '1': sizeOfPizza = "Small"; flag = true; return;
 
-                    case '2': sizeOfPizza = "Meduim"; return;
+                    case '2': sizeOfPizza = "Meduim"; flag = true; return;
 
-                    case '3': sizeOfPizza = "Large"; return;
+                    case '3': sizeOfPizza = "Large"; flag = true; return;
 
                     default:
 
@@ -134,7 +136,7 @@ namespace PizzaCreator
         }
 
         static string sizeOfPizza;
-        bool meatToppings[] = new bool meatToppings[4];
+        //private bool meatToppings[] = new bool meatToppings[4];
     }
 }
 
