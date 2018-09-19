@@ -14,6 +14,7 @@ namespace PizzaCreator
         public static bool wantVegetables;
         public static bool wantMeats;
         public static bool wantSize;
+        public static bool[] MeatToppings = new bool[4];
         static void Main( string[] args )
         {
             bool notQuit;
@@ -403,41 +404,43 @@ namespace PizzaCreator
                     Console.WriteLine("4) Sausage   ($0.75)");
                     switch (Console.ReadLine()[0])
                     {
-                        case '1':
-                        MeatsOfPizza = "Bacon";
-                        flag = true;
-                        wantMeats = true;
-                        return;
+                        case '1': MeatToppings[0] = !MeatToppings[0]; 
+                        
+                        break;
 
                         case '2':
-                        MeatsOfPizza = "Ham";
-                        flag = true;
-                        ;
+                        MeatToppings[1] = !MeatToppings[1];
                         wantMeats = true;
-                        return;
+                        break;
 
                         case '3':
-                        MeatsOfPizza = "Pepperoni";
-                        flag = true;
+                        MeatToppings[2] = !MeatToppings[2];
+
                         ;
                         wantMeats = true;
-                        return;
+                        break;
 
 
                         case '4':
-                        MeatsOfPizza = "Sausage";
-                        flag = true;
+                        MeatToppings[3] = !MeatToppings[3];
                         ;
                         wantMeats = true;
-                        return;
+                        break;
 
                         default:
 
 
                         Console.WriteLine("Please enter a valid value");
+
                         break;
                     }
+
+
+
+
                 }
+
+
             }
 
 
