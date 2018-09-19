@@ -120,10 +120,43 @@ namespace PizzaCreator
 
             decimal CostOfPizza = 0.00m;
 
+            if (wantSize)
+            {
+                CostOfPizza += index[1];
+                CostOfPizza += index[2];
+            }
+            else
+            {
+
+                CostOfPizza += index[3];
+            }
+            if (wantMeats)
+            {
+                CostOfPizza += index[4];
+                CostOfPizza += index[5];
+
+            }
+            else
+            {
+                CostOfPizza += index[6];
+                CostOfPizza += index[7];
+            }
+            if (wantVegetables)
+            {
+                CostOfPizza += index[8];
+                CostOfPizza += index[9];
+            }
+            else
+            {
+                CostOfPizza += index[10];
+                CostOfPizza += index[11];
 
 
+            }
             if (wantSauce)
             {
+
+                CostOfPizza += index[12];
                 CostOfPizza += index[13];
             }
             else
@@ -131,15 +164,6 @@ namespace PizzaCreator
                 CostOfPizza += index[14];
 
             }
-
-          
-            if (wantVegetables)
-            {
-
-
-            }
-            if (wantMeats)
-            if (wantSize)
             if (wantCheese)
             {
                 CostOfPizza += index[15];
@@ -172,15 +196,7 @@ namespace PizzaCreator
 
 
 
-
-
-
-
-
         }
-
-        
-
         private static void GetDeliveryOfPizza()
         {
             bool flag = false;
