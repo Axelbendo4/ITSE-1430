@@ -8,13 +8,13 @@ namespace PizzaCreator
 {
     class Program
     {
-        public static bool wantCheese = false;
-        public static bool wantDelivery = false;
-        public static bool wantSauce = false;
-        public static bool wantVegetables = false;
-        public static bool wantMeats = false;
-        public static bool wantSize = false;
-        static void Main(string[] args)
+        public static bool wantCheese;
+        public static bool wantDelivery;
+        public static bool wantSauce;
+        public static bool wantVegetables;
+        public static bool wantMeats;
+        public static bool wantSize;
+        static void Main( string[] args )
         {
             bool notQuit;
             do
@@ -47,31 +47,31 @@ namespace PizzaCreator
                 {
                     case 'n':
                     case 'N':
-                        NewOrder(menu);
-                        return true;
+                    NewOrder(menu);
+                    return true;
 
                     case 'm':
                     case 'M':
-                        ModifyOrder();
-                        return true;
+                    ModifyOrder();
+                    return true;
 
                     case 'd':
                     case 'D':
-                        DisplayOrder();
-                        return true;
+                    DisplayOrder();
+                    return true;
 
 
 
                     case 'q':
                     case 'Q':
-                        Quit();
-                        return false;
+                    Quit();
+                    return false;
 
                     default:
 
-                        Console.WriteLine("Please enter a valid value");
+                    Console.WriteLine("Please enter a valid value");
 
-                        break;
+                    break;
                 };
             };
         }
@@ -96,7 +96,7 @@ namespace PizzaCreator
             Console.WriteLine("ModifyOrder");
         }
 
-        private static void NewOrder(bool[] men)
+        private static void NewOrder( bool[] men )
         {
             GetSizeOrder();
             GetMeatToppings();
@@ -124,8 +124,7 @@ namespace PizzaCreator
             {
                 CostOfPizza += index[1];
                 CostOfPizza += index[2];
-            }
-            else
+            } else
             {
 
                 CostOfPizza += index[3];
@@ -135,8 +134,7 @@ namespace PizzaCreator
                 CostOfPizza += index[4];
                 CostOfPizza += index[5];
 
-            }
-            else
+            } else
             {
                 CostOfPizza += index[6];
                 CostOfPizza += index[7];
@@ -145,8 +143,7 @@ namespace PizzaCreator
             {
                 CostOfPizza += index[8];
                 CostOfPizza += index[9];
-            }
-            else
+            } else
             {
                 CostOfPizza += index[10];
                 CostOfPizza += index[11];
@@ -158,8 +155,7 @@ namespace PizzaCreator
 
                 CostOfPizza += index[12];
                 CostOfPizza += index[13];
-            }
-            else
+            } else
             {
                 CostOfPizza += index[14];
 
@@ -169,9 +165,7 @@ namespace PizzaCreator
                 CostOfPizza += index[15];
 
 
-            }
-
-            else
+            } else
             {
 
                 CostOfPizza += index[16];
@@ -184,8 +178,7 @@ namespace PizzaCreator
                 CostOfPizza += index[17];
 
 
-            }
-            else
+            } else
             {
 
 
@@ -205,25 +198,33 @@ namespace PizzaCreator
                 Console.WriteLine("Delivery(one is required)");
                 Console.WriteLine("1) Take Out  ($0)");
                 Console.WriteLine("2) Delivery  ($2.5)");
-               
+
 
                 string input = Console.ReadLine();
                 switch (input[0])
                 {
-                    case '1': DeliveryOfPizza = "Take Out"; flag = true ; wantDelivery = true; return;
+                    case '1':
+                    DeliveryOfPizza = "Take Out";
+                    flag = true;
+                    wantDelivery = true;
+                    return;
 
-                    case '2': DeliveryOfPizza = "Delivery"; flag = true ; wantDelivery = true; return;
+                    case '2':
+                    DeliveryOfPizza = "Delivery";
+                    flag = true;
+                    wantDelivery = true;
+                    return;
 
 
                     default:
 
-                        Console.WriteLine("Please enter a valid value");
+                    Console.WriteLine("Please enter a valid value");
 
 
 
-                        break;
+                    break;
 
-                        
+
 
 
 
@@ -246,19 +247,27 @@ namespace PizzaCreator
                     Console.WriteLine("Cheese (One is required)");
                     Console.WriteLine("1) Regular  ($0)");
                     Console.WriteLine("2) Extra    ($1.25)");
-                    
+
 
                     switch (Console.ReadLine()[0])
                     {
 
-                        case '1': CheeseOfPizza = "Regular"; flag = true;wantCheese = false; return;
+                        case '1':
+                        CheeseOfPizza = "Regular";
+                        flag = true;
+                        wantCheese = false;
+                        return;
 
-                        case '2': CheeseOfPizza = "Extra"; flag = true;wantCheese = true; return;
+                        case '2':
+                        CheeseOfPizza = "Extra";
+                        flag = true;
+                        wantCheese = true;
+                        return;
 
                         default:
 
-                            Console.WriteLine("Please enter a valid value");
-                            break;
+                        Console.WriteLine("Please enter a valid value");
+                        break;
                     }
 
                 }
@@ -281,21 +290,33 @@ namespace PizzaCreator
                     Console.WriteLine("Sauce (One is required)");
                     Console.WriteLine("1) Traditional  ($0)   ");
                     Console.WriteLine("2) Garlic       ($1)   ");
-                    Console.WriteLine("3) Oregano      ($1)   "); 
-            
+                    Console.WriteLine("3) Oregano      ($1)   ");
+
 
                     switch (Console.ReadLine()[0])
                     {
-                          case '1': SauceOfPizza = "Traditional"; flag = true;wantSauce = true; return;
+                        case '1':
+                        SauceOfPizza = "Traditional";
+                        flag = true;
+                        wantSauce = true;
+                        return;
 
-                          case '2': SauceOfPizza = "Garlic"; flag = true; wantSauce = true; return;
+                        case '2':
+                        SauceOfPizza = "Garlic";
+                        flag = true;
+                        wantSauce = true;
+                        return;
 
-                          case '3': SauceOfPizza = "Oregano"; flag = true; wantSauce = true; return;
+                        case '3':
+                        SauceOfPizza = "Oregano";
+                        flag = true;
+                        wantSauce = true;
+                        return;
 
                         default:
 
-                           Console.WriteLine("Please enter a valid value");
-                            break;
+                        Console.WriteLine("Please enter a valid value");
+                        break;
                     }
                 }
 
@@ -325,22 +346,38 @@ namespace PizzaCreator
                     switch (Console.ReadLine()[0])
                     {
 
-                        case '1': VegetablesOfPizza = "Black Olives"; flag = true;wantVegetables = true; return;
+                        case '1':
+                        VegetablesOfPizza = "Black Olives";
+                        flag = true;
+                        wantVegetables = true;
+                        return;
 
-                        case '2': VegetablesOfPizza = "Mushrooms"; flag = true; wantVegetables = true; return;
+                        case '2':
+                        VegetablesOfPizza = "Mushrooms";
+                        flag = true;
+                        wantVegetables = true;
+                        return;
 
-                        case '3': VegetablesOfPizza = "Onions"; flag = true; wantVegetables = true; return;
+                        case '3':
+                        VegetablesOfPizza = "Onions";
+                        flag = true;
+                        wantVegetables = true;
+                        return;
 
 
-                        case '4': VegetablesOfPizza = "Peppers"; flag = true; wantVegetables = true; return;
+                        case '4':
+                        VegetablesOfPizza = "Peppers";
+                        flag = true;
+                        wantVegetables = true;
+                        return;
 
                         default:
 
 
-                            Console.WriteLine("Please enter a valid value");
-                            break;
+                        Console.WriteLine("Please enter a valid value");
+                        break;
 
-                    } 
+                    }
                 }
 
             }
@@ -366,25 +403,44 @@ namespace PizzaCreator
                     Console.WriteLine("4) Sausage   ($0.75)");
                     switch (Console.ReadLine()[0])
                     {
-                        case '1': MeatsOfPizza = "Bacon"; flag = true;wantMeats = true; return;
+                        case '1':
+                        MeatsOfPizza = "Bacon";
+                        flag = true;
+                        wantMeats = true;
+                        return;
 
-                        case '2': MeatsOfPizza = "Ham"; flag = true; ; wantMeats = true; return;
+                        case '2':
+                        MeatsOfPizza = "Ham";
+                        flag = true;
+                        ;
+                        wantMeats = true;
+                        return;
 
-                        case '3': MeatsOfPizza = "Pepperoni"; flag = true; ; wantMeats = true; return;
+                        case '3':
+                        MeatsOfPizza = "Pepperoni";
+                        flag = true;
+                        ;
+                        wantMeats = true;
+                        return;
 
 
-                        case '4': MeatsOfPizza = "Sausage"; flag = true; ; wantMeats = true; return;
+                        case '4':
+                        MeatsOfPizza = "Sausage";
+                        flag = true;
+                        ;
+                        wantMeats = true;
+                        return;
 
                         default:
 
 
-                            Console.WriteLine("Please enter a valid value");
-                            break;
+                        Console.WriteLine("Please enter a valid value");
+                        break;
                     }
                 }
             }
 
-            
+
         }
 
         private static void GetSizeOrder()
@@ -401,17 +457,29 @@ namespace PizzaCreator
                 string input = Console.ReadLine();
                 switch (input[0])
                 {
-                    case '1': SizeOfPizza1 = "Small"; flag = true;wantSize = true; return;
+                    case '1':
+                    SizeOfPizza1 = "Small";
+                    flag = true;
+                    wantSize = true;
+                    return;
 
-                    case '2': SizeOfPizza1 = "Meduim"; flag = true; wantSize = true; return;
+                    case '2':
+                    SizeOfPizza1 = "Meduim";
+                    flag = true;
+                    wantSize = true;
+                    return;
 
-                    case '3': SizeOfPizza1 = "Large"; flag = true; wantSize = true; return;
+                    case '3':
+                    SizeOfPizza1 = "Large";
+                    flag = true;
+                    wantSize = true;
+                    return;
 
                     default:
 
-                        Console.WriteLine("Please enter a valid value");
+                    Console.WriteLine("Please enter a valid value");
 
-                        break;
+                    break;
                 };
             }
 
@@ -428,7 +496,7 @@ namespace PizzaCreator
         public static string DeliveryOfPizza { get => deliveryOfPizza; set => deliveryOfPizza = value; }
         public static string CheeseOfPizza { get => cheeseOfPizza; set => cheeseOfPizza = value; }
         public static string SizeOfPizza1 { get => sizeOfPizza; set => sizeOfPizza = value; }
-        
+
     }
 }
 
@@ -436,14 +504,14 @@ namespace PizzaCreator
 
 
 
-    
 
 
-       
 
-    
 
-    
+
+
+
+
 
 
 
