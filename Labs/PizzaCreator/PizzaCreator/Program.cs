@@ -127,7 +127,36 @@ namespace PizzaCreator
                 CostOfPizza += 6.25m;
             else if (sizeOfPizza == "Large")
                 CostOfPizza += 8.75m;
-
+            if (sizeOfPizza == "Bacon")
+                CostOfPizza += 0.75m;
+            else if (sizeOfPizza == "Ham")
+                CostOfPizza += 0.75m;
+            else if (sizeOfPizza == "Pepporoni")
+                CostOfPizza += 0.75m;
+           else if (sizeOfPizza == "Sausage")
+                CostOfPizza += 0.75m;
+             if (sizeOfPizza == "Black_Olives")
+                CostOfPizza += 0.50m;
+            else if (sizeOfPizza == "Mushrooms")
+                CostOfPizza += 0.50m;
+            else if (sizeOfPizza == "Onions")
+                CostOfPizza += 0.50m;
+            else if (sizeOfPizza == "Peppers")
+                CostOfPizza += 0.50m;
+             if (sizeOfPizza == "Traditional")
+                CostOfPizza += 0.00m;
+            else if (sizeOfPizza == "Garlic")
+                CostOfPizza += 1.00m;
+            else if (sizeOfPizza == "Oregano")
+                CostOfPizza += 1.00m;
+            if (sizeOfPizza == "Regular")
+                CostOfPizza += 0.00m;
+           else if (sizeOfPizza == "Extra")
+                CostOfPizza += 0.00m;
+            if (sizeOfPizza == "Take_Out")
+                CostOfPizza += 0.00m;
+            else if (sizeOfPizza == "Delevery")
+                CostOfPizza += 2.0m;
             if (wantSize)
             {
                 CostOfPizza += index[0];
@@ -212,13 +241,13 @@ namespace PizzaCreator
                 switch (input[0])
                 {
                     case '1':
-                    DeliveryOfPizza = "Take Out";
+                    deliveryOfPizza = "Take Out";
                     flag = true;
                     wantDelivery = true;
                     return;
 
                     case '2':
-                    DeliveryOfPizza = "Delivery";
+                    deliveryOfPizza = "Delivery";
                     flag = true;
                     wantDelivery = true;
                     return;
@@ -261,13 +290,13 @@ namespace PizzaCreator
                     {
 
                         case '1':
-                        CheeseOfPizza = "Regular";
+                        cheeseOfPizza = "Regular";
                         flag = true;
                         wantCheese = false;
                         return;
 
                         case '2':
-                        CheeseOfPizza = "Extra";
+                        cheeseOfPizza = "Extra";
                         flag = true;
                         wantCheese = true;
                         return;
@@ -304,19 +333,19 @@ namespace PizzaCreator
                     switch (Console.ReadLine()[0])
                     {
                         case '1':
-                        SauceOfPizza = "Traditional";
+                        sauceOfPizza = "Traditional";
                         flag = true;
                         wantSauce = true;
                         return;
 
                         case '2':
-                        SauceOfPizza = "Garlic";
+                        sauceOfPizza = "Garlic";
                         flag = true;
                         wantSauce = true;
                         return;
 
                         case '3':
-                        SauceOfPizza = "Oregano";
+                        sauceOfPizza = "Oregano";
                         flag = true;
                         wantSauce = true;
                         return;
@@ -355,26 +384,26 @@ namespace PizzaCreator
                     {
 
                         case '1':
-                        VegetablesOfPizza = "Black Olives";
+                        vegetablesOfPizza = "Black Olives";
                         flag = true;
                         wantVegetables = true;
                         return;
 
                         case '2':
-                        VegetablesOfPizza = "Mushrooms";
+                        vegetablesOfPizza = "Mushrooms";
                         flag = true;
                         wantVegetables = true;
                         return;
 
                         case '3':
-                        VegetablesOfPizza = "Onions";
+                        vegetablesOfPizza = "Onions";
                         flag = true;
                         wantVegetables = true;
                         return;
 
 
                         case '4':
-                        VegetablesOfPizza = "Peppers";
+                        vegetablesOfPizza = "Peppers";
                         flag = true;
                         wantVegetables = true;
                         return;
@@ -411,28 +440,24 @@ namespace PizzaCreator
                     Console.WriteLine("4) Sausage   ($0.75)");
                     switch (Console.ReadLine()[0])
                     {
-                        case '1': MeatToppings[0] = !MeatToppings[0]; 
-                        
-                        break;
+                        case '1':
+                            meatsOfPizza = "Bacon";flag = true; wantMeats = true; return;
+                        ;
 
                         case '2':
-                        MeatToppings[1] = !MeatToppings[1];
-                        wantMeats = true;
-                        break;
+                            meatsOfPizza = "Ham"; flag = true; wantMeats = true; return;
+                            
+                           
 
                         case '3':
-                        MeatToppings[2] = !MeatToppings[2];
-
-                        ;
-                        wantMeats = true;
-                        break;
-
+                            meatsOfPizza = "Pepporoni"; flag = true; wantMeats = true; return;
+                            
 
                         case '4':
-                        MeatToppings[3] = !MeatToppings[3];
-                        ;
-                        wantMeats = true;
-                        break;
+                            meatsOfPizza = "Sausage"; flag = true; wantMeats = true; return;
+                            
+                           
+                        
 
                         default:
 
@@ -497,11 +522,11 @@ namespace PizzaCreator
         }
 
         private static string sizeOfPizza;
-       
         private static string cheeseOfPizza;
         private static string deliveryOfPizza;
-
-       
+        private static string sauceOfPizza;
+        private static string vegetablesOfPizza;
+        private static string meatsOfPizza;
     }
 }
 
