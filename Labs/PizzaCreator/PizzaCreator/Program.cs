@@ -121,9 +121,16 @@ namespace PizzaCreator
 
             decimal CostOfPizza = 0.00m;
 
+            if (sizeOfPizza == "Small")
+                CostOfPizza += 5.00m;
+            else if (sizeOfPizza == "Medium")
+                CostOfPizza += 6.25m;
+            else if (sizeOfPizza == "Large")
+                CostOfPizza += 8.75m;
+
             if (wantSize)
             {
-                CostOfPizza += index[1];
+                CostOfPizza += index[0];
                 CostOfPizza += index[2];
             } else
             {
@@ -461,19 +468,19 @@ namespace PizzaCreator
                 switch (input[0])
                 {
                     case '1':
-                    SizeOfPizza1 = "Small";
+                    sizeOfPizza  = "Small";
                     flag = true;
                     wantSize = true;
                     return;
 
                     case '2':
-                    SizeOfPizza1 = "Meduim";
+                    sizeOfPizza = "Medium";
                     flag = true;
                     wantSize = true;
                     return;
 
                     case '3':
-                    SizeOfPizza1 = "Large";
+                    sizeOfPizza = "Large";
                     flag = true;
                     wantSize = true;
                     return;
@@ -490,16 +497,11 @@ namespace PizzaCreator
         }
 
         private static string sizeOfPizza;
+       
         private static string cheeseOfPizza;
         private static string deliveryOfPizza;
 
-        public static string MeatsOfPizza { get; private set; }
-        public static string VegetablesOfPizza { get; private set; }
-        public static string SauceOfPizza { get; private set; }
-        public static string DeliveryOfPizza { get => deliveryOfPizza; set => deliveryOfPizza = value; }
-        public static string CheeseOfPizza { get => cheeseOfPizza; set => cheeseOfPizza = value; }
-        public static string SizeOfPizza1 { get => sizeOfPizza; set => sizeOfPizza = value; }
-
+       
     }
 }
 
