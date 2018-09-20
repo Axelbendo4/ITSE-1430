@@ -315,11 +315,11 @@ namespace PizzaCreator
 
         private static void GetSauceofPizza()
         {
-            Console.WriteLine("Do you want Sauce on your pizza?");
-            Console.WriteLine("1) for Yes or 2) for No.");
-            string input = Console.ReadLine();
+            //Console.WriteLine("Do you want Sauce on your pizza?");
+            //Console.WriteLine("1) for Yes or 2) for No.");
+            //string input = Console.ReadLine();
 
-            if (input == "1")
+            //if (input == "1")
             {
                 bool flag = false;
                 while (!flag)
@@ -363,11 +363,11 @@ namespace PizzaCreator
 
         private static void GetVegetables()
         {
-            Console.WriteLine("Do you want vegetables on your pizza?");
-            Console.WriteLine("1) for Yes or 2) for No.");
-            string input = Console.ReadLine();
+            //Console.WriteLine(//"Do you want vegetables on your pizza?");
+           // Console.WriteLine(//"1) for Yes or 2) for No.");
+            //string input = Console.ReadLine();
 
-            if (input == "1")
+            //if //(input == "1")
             {
                 bool flag = false;
                 while (!flag)
