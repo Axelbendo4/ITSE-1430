@@ -84,8 +84,6 @@ namespace PizzaCreator
 
         private static void DisplayOrder()
         {
-          
-
 
             Console.WriteLine("\n\nPizza Order");
             Console.WriteLine("------------------------");
@@ -99,11 +97,7 @@ namespace PizzaCreator
             PriceOfPizza();
             Console.WriteLine("\n\n");
 
-
-
         }
-
-
         private static void  ModifyOrder()
         {
             Console.WriteLine("Do you want to modify your Order?");
@@ -145,15 +139,7 @@ namespace PizzaCreator
             priceOfPizza = 
             (size + (meats * .5) + (vegetables * .5) + sauce + cheese + delivery);
             Console.WriteLine($"Total: ${priceOfPizza}");
-            
-
-
-            
-
-            
-
-
-
+         
 
         }
         private static void GetDeliveryOfPizza()
@@ -521,12 +507,6 @@ namespace PizzaCreator
         private static string sauceOfPizza;
         private static string vegetablesOfPizza;
         private static string meatsOfPizza;
-
-
-
-    
-
-
 
         private static bool ConfirmChoice(string message)
         {
