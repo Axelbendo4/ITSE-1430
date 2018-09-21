@@ -1,4 +1,7 @@
-﻿using System;
+﻿// Axel G Bendo
+//ITSE 1430
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,7 +18,7 @@ namespace PizzaCreator
         public static bool wantMeats;
         public static bool wantSize;
         public static bool[] MeatToppings = new bool[4];
-        static void Main( string[] args )
+        static void Main(string[] args)
         {
             bool notQuit;
             do
@@ -36,43 +39,47 @@ namespace PizzaCreator
 
 
 
+
+
+            Console.WriteLine("N)ew Order");
+            Console.WriteLine("M)odify Order");
+            Console.WriteLine("D)isplay Order");
+            Console.WriteLine("Q)uit");
+
+            Console.WriteLine("Please enter the first letter of the value you would like to do:");
+            ConsoleKeyInfo choice = Console.ReadKey(true);
             while (true)
             {
-                Console.WriteLine("N)ew Order");
-                Console.WriteLine("M)odify Order");
-                Console.WriteLine("D)isplay Order");
-                Console.WriteLine("Q)uit");
-
-                string input = Console.ReadLine();
-                switch (input[0])
+                switch (choice.KeyChar)
                 {
                     case 'n':
                     case 'N':
-                    NewOrder(menu);
-                    return true;
+                        NewOrder(menu);
+                        return true;
 
                     case 'm':
                     case 'M':
-                    ModifyOrder();
-                    return true;
+                        ModifyOrder();
+                        return true;
 
                     case 'd':
                     case 'D':
-                    DisplayOrder();
-                    return true;
+                        DisplayOrder();
+                        return true;
 
 
 
                     case 'q':
                     case 'Q':
-                    Quit();
-                    return false;
+                        Quit();
+                        return false;
 
                     default:
 
-                    Console.WriteLine("Please enter a valid value");
+                        Console.WriteLine("Please enter a valid value");
+                        choice = Console.ReadKey(true);
 
-                    break;
+                        break;
                 };
             };
         }
@@ -86,18 +93,48 @@ namespace PizzaCreator
 
         private static void DisplayOrder()
         {
-            Console.WriteLine("DisplayOrder");
+          
 
-            Console.WriteLine(PriceOfPizza());
+
+            Console.WriteLine("\n\nPizza Order");
+            Console.WriteLine("------------------------");
+            Console.WriteLine($"Size: {sizeTotal}   ${size}");
+            Console.WriteLine($"Meats: {meatsTotal}   ${meats}");
+            Console.WriteLine($"Vegetables: {vegetablesTotal}   ${vegetables}");
+            Console.WriteLine($"Sauce: {sauceTotal}   ${sauce}");
+            Console.WriteLine($"Cheese: {cheeseTotal}   ${cheese}");
+            Console.WriteLine($"Delivery or Take out: {deliveryTotal}   ${delivery}");
+            Console.WriteLine("------------------------");
+            PriceOfPizza();
+            Console.WriteLine("\n\n");
+
+
+
         }
 
 
-        private static void ModifyOrder()
+        private static void  ModifyOrder()
         {
-            Console.WriteLine("ModifyOrder");
+            Console.WriteLine("Do you want to modify your Order?");
+
+            if (ConfirmChoice("Are you sure to modify your order?"))
+            {
+                 double  Total = 0.00; 
+                GetSizeOrder();
+                GetMeatToppings();
+                GetVegetables();
+                GetSauceofPizza();
+                GetCheeseOfPizza();
+                GetDeliveryOfPizza();
+
+
+                DisplayOrder();
+                
+            }
+
         }
 
-        private static void NewOrder( bool[] men )
+        private static void NewOrder(bool[] men)
         {
             GetSizeOrder();
             GetMeatToppings();
@@ -106,122 +143,23 @@ namespace PizzaCreator
             GetCheeseOfPizza();
             GetDeliveryOfPizza();
 
+
+            DisplayOrder();
+           
         }
 
-        private static decimal PriceOfPizza()
+        private static void PriceOfPizza()
         {
-            string[] text = new string[18];
-            decimal[] index = new decimal[18];
 
-            text = new string[18]{"small" , "Medium" , "Large" ,"Bacon" ,"Ham", "Pepperoni", "Sausage","Black_Olives","Mushrooms","Onions","Peppers","Traditional","Garlic", "Oregono","Regular","Extra","Take_Out",
-                    "Delivery"};
-
-
-            index = new decimal[18] { 5.00m, 6.25m, 8.75m, 0.75m, 0.75m, 0.75m, 0.75m, 0.50m, 0.50m, 0.50m, 0.50m, 0m, 1m, 1m, 0m, 1.25m, 0m, 2.50m };
-
-            decimal CostOfPizza = 0.00m;
-
-            if (sizeOfPizza == "Small")
-                CostOfPizza += 5.00m;
-            else if (sizeOfPizza == "Medium")
-                CostOfPizza += 6.25m;
-            else if (sizeOfPizza == "Large")
-                CostOfPizza += 8.75m;
-            if (sizeOfPizza == "Bacon")
-                CostOfPizza += 0.75m;
-            else if (sizeOfPizza == "Ham")
-                CostOfPizza += 0.75m;
-            else if (sizeOfPizza == "Pepporoni")
-                CostOfPizza += 0.75m;
-           else if (sizeOfPizza == "Sausage")
-                CostOfPizza += 0.75m;
-             if (sizeOfPizza == "Black_Olives")
-                CostOfPizza += 0.50m;
-            else if (sizeOfPizza == "Mushrooms")
-                CostOfPizza += 0.50m;
-            else if (sizeOfPizza == "Onions")
-                CostOfPizza += 0.50m;
-            else if (sizeOfPizza == "Peppers")
-                CostOfPizza += 0.50m;
-             if (sizeOfPizza == "Traditional")
-                CostOfPizza += 0.00m;
-            else if (sizeOfPizza == "Garlic")
-                CostOfPizza += 1.00m;
-            else if (sizeOfPizza == "Oregano")
-                CostOfPizza += 1.00m;
-            if (sizeOfPizza == "Regular")
-                CostOfPizza += 0.00m;
-           else if (sizeOfPizza == "Extra")
-                CostOfPizza += 0.00m;
-            if (sizeOfPizza == "Take_Out")
-                CostOfPizza += 0.00m;
-            else if (sizeOfPizza == "Delevery")
-                CostOfPizza += 2.0m;
-            if (wantSize)
-            {
-                CostOfPizza += index[0];
-                CostOfPizza += index[2];
-            } else
-            {
-
-                CostOfPizza += index[3];
-            }
-            if (wantMeats)
-            {
-                CostOfPizza += index[4];
-                CostOfPizza += index[5];
-
-            } else
-            {
-                CostOfPizza += index[6];
-                CostOfPizza += index[7];
-            }
-            if (wantVegetables)
-            {
-                CostOfPizza += index[8];
-                CostOfPizza += index[9];
-            } else
-            {
-                CostOfPizza += index[10];
-                CostOfPizza += index[11];
+            priceOfPizza = 
+            (size + (meats * .5) + (vegetables * .5) + sauce + cheese + delivery);
+            Console.WriteLine($"Total: ${priceOfPizza}");
+            
 
 
-            }
-            if (wantSauce)
-            {
+            
 
-                CostOfPizza += index[12];
-                CostOfPizza += index[13];
-            } else
-            {
-                CostOfPizza += index[14];
-
-            }
-            if (wantCheese)
-            {
-                CostOfPizza += index[15];
-
-
-            } else
-            {
-
-                CostOfPizza += index[16];
-            }
-
-
-            if (wantDelivery)
-            {
-
-                CostOfPizza += index[17];
-
-
-            } else
-            {
-
-
-                CostOfPizza += index[18];
-            }
-            return CostOfPizza;
+            
 
 
 
@@ -229,54 +167,66 @@ namespace PizzaCreator
         }
         private static void GetDeliveryOfPizza()
         {
-            bool flag = false;
-            while (!flag)
+            string message = "One is required?";
+            Console.WriteLine("1) for Yes or 2) for No.");
+            do
             {
-                Console.WriteLine("Delivery(one is required)");
-                Console.WriteLine("1) Take Out  ($0)");
-                Console.WriteLine("2) Delivery  ($2.5)");
-
-
-                string input = Console.ReadLine();
-                switch (input[0])
+                bool flag = false;
+                while (!flag)
                 {
-                    case '1':
-                    deliveryOfPizza = "Take Out";
-                    flag = true;
-                    wantDelivery = true;
-                    return;
 
-                    case '2':
-                    deliveryOfPizza = "Delivery";
-                    flag = true;
-                    wantDelivery = true;
-                    return;
+                    Console.WriteLine("1) Take Out  ($0)");
+                    Console.WriteLine("2) Delivery  ($2.5)");
 
 
-                    default:
+                    ConsoleKeyInfo choice = Console.ReadKey(true);
 
-                    Console.WriteLine("Please enter a valid value");
+                    switch (choice.KeyChar)
+
+                    {
+                        case '1':
+                            deliveryOfPizza = "Take Out";
+                            flag = true;
+                            wantDelivery = true;
+                            deliveryTotal = "Take_Out";
+                            delivery = 0;
+                            break;
+
+                        case '2':
+                            deliveryOfPizza = "Delivery";
+                            flag = true;
+                            wantDelivery = true;
+                            deliveryTotal = "Delevery";
+                            delivery = 2.50;
+                            return;
+
+
+                        default:
+
+                            Console.WriteLine("Please enter a valid value");
+                            choice = Console.ReadKey(true);
+
+
+                            break;
+                    };
+                    Console.WriteLine("\nTake out or Delivery : " + deliveryTotal);
+
+                };
 
 
 
-                    break;
-
-
-
-
-
-
-                }
-            }
+            } while (!ConfirmChoice(message));
         }
 
         private static void GetCheeseOfPizza()
         {
-            Console.WriteLine("Do you want Cheese on your pizza?");
+            string message = "Are you sure of choice?";
+
+           
             Console.WriteLine("1) for Yes or 2) for No.");
             string input = Console.ReadLine();
 
-            if (input == "1")
+            do
             {
                 bool flag = false;
                 while (!flag)
@@ -286,40 +236,48 @@ namespace PizzaCreator
                     Console.WriteLine("2) Extra    ($1.25)");
 
 
-                    switch (Console.ReadLine()[0])
+                    ConsoleKeyInfo choice = Console.ReadKey(true);
+
+                    switch (choice.KeyChar)
                     {
 
                         case '1':
-                        cheeseOfPizza = "Regular";
-                        flag = true;
-                        wantCheese = false;
-                        return;
+                            cheeseOfPizza = "Regular";
+                            flag = true;
+                            wantCheese = false;
+                            cheeseTotal = "Regular";
+                            cheese = 0.00;
+                            return;
 
                         case '2':
-                        cheeseOfPizza = "Extra";
-                        flag = true;
-                        wantCheese = true;
-                        return;
+                            cheeseOfPizza = "Extra";
+                            flag = true;
+                            wantCheese = true;
+                            cheeseTotal = "Extra";
+                            cheese = 1.25;
+                            return;
 
                         default:
 
-                        Console.WriteLine("Please enter a valid value");
-                        break;
-                    }
+                            Console.WriteLine("Please enter a valid value");
+                            choice = Console.ReadKey(true);
+                            break;
+                    };
 
-                }
+                };
 
-            }
+            } while (!ConfirmChoice(message));
+
+            PriceOfPizza();
 
         }
 
         private static void GetSauceofPizza()
         {
-            //Console.WriteLine("Do you want Sauce on your pizza?");
-            //Console.WriteLine("1) for Yes or 2) for No.");
-            //string input = Console.ReadLine();
+            string message = "Are you sure of choice?";
 
-            //if (input == "1")
+
+            do
             {
                 bool flag = false;
                 while (!flag)
@@ -329,196 +287,241 @@ namespace PizzaCreator
                     Console.WriteLine("2) Garlic       ($1)   ");
                     Console.WriteLine("3) Oregano      ($1)   ");
 
+                    ConsoleKeyInfo choice = Console.ReadKey(true);
 
-                    switch (Console.ReadLine()[0])
+                    switch (choice.KeyChar)
+
                     {
                         case '1':
-                        sauceOfPizza = "Traditional";
-                        flag = true;
-                        wantSauce = true;
-                        return;
+                            sauceOfPizza = "Traditional";
+                            flag = true;
+                            wantSauce = true;
+                            sauceTotal = "Traditional";
+                            sauce = 0.00;
+                            break;
 
                         case '2':
-                        sauceOfPizza = "Garlic";
-                        flag = true;
-                        wantSauce = true;
-                        return;
+                            sauceOfPizza = "Garlic";
+                            flag = true;
+                            wantSauce = true;
+                            sauceTotal = "Garlic";
+                            sauce = 1.00;
+                            break;
 
                         case '3':
-                        sauceOfPizza = "Oregano";
-                        flag = true;
-                        wantSauce = true;
-                        return;
+                            sauceOfPizza = "Oregano";
+                            flag = true;
+                            wantSauce = true;
+                            sauceTotal = "Oregano";
+                            sauce = 1.00;
+
+                            break;
 
                         default:
 
-                        Console.WriteLine("Please enter a valid value");
-                        break;
-                    }
-                }
+                            Console.WriteLine("Please enter a valid value");
+                            choice = Console.ReadKey(true);
+
+                            break;
+                    };
+
+                    Console.WriteLine("\nSauce: " + sauceTotal);
+
+                };
 
 
-            }
+            } while (!ConfirmChoice(message));
+
+            PriceOfPizza();
         }
 
         private static void GetVegetables()
         {
-            //Console.WriteLine(//"Do you want vegetables on your pizza?");
-           // Console.WriteLine(//"1) for Yes or 2) for No.");
-            //string input = Console.ReadLine();
+            string message = "Are you sure of choice?";
 
-            //if //(input == "1")
+            do
             {
+
                 bool flag = false;
                 while (!flag)
                 {
-
-
                     Console.WriteLine("Vegetables (zero or more )Each option $0.50 extra.The user can select or unselect the options until done.");
                     Console.WriteLine("1) Black olives  ($0.50)");
                     Console.WriteLine("2) Mushrooms     ($0.50)");
                     Console.WriteLine("3) Onions        ($0.50)");
                     Console.WriteLine("4) Peppers       ($0.50)");
 
-                    switch (Console.ReadLine()[0])
-                    {
+                    ConsoleKeyInfo choice = Console.ReadKey(true);
 
+                    switch (choice.KeyChar)
+                    {
                         case '1':
-                        vegetablesOfPizza = "Black Olives";
-                        flag = true;
-                        wantVegetables = true;
-                        return;
+                            vegetablesOfPizza = "Black Olives";
+                            flag = true;
+                            wantVegetables = false ;
+                           vegetablesTotal = "Black Olives";
+                            vegetables = 0.50;
+                            break; 
 
                         case '2':
-                        vegetablesOfPizza = "Mushrooms";
-                        flag = true;
-                        wantVegetables = true;
-                        return;
+                            vegetablesOfPizza = "Mushrooms";
+                            flag = true;
+                            wantVegetables = false ;
+                            vegetablesTotal = "Mushrooms";
+                            vegetables = 0.50;
+                            break;
 
                         case '3':
-                        vegetablesOfPizza = "Onions";
-                        flag = true;
-                        wantVegetables = true;
-                        return;
+                            vegetablesOfPizza = "Onions";
+                            flag = true;
+                            wantVegetables = false ;
+                            vegetablesTotal = "Onions";
+                            vegetables = 0.50;
+                            break;
 
 
                         case '4':
-                        vegetablesOfPizza = "Peppers";
-                        flag = true;
-                        wantVegetables = true;
-                        return;
+                            vegetablesOfPizza = "Peppers";
+                            flag = true;
+                            wantVegetables = false ;
+                            vegetablesTotal = "Peppers";
+                            vegetables = 0.50;
+                            break;
 
                         default:
 
 
-                        Console.WriteLine("Please enter a valid value");
-                        break;
+                            Console.WriteLine("Please enter a valid value");
+                            choice = Console.ReadKey(true);
+                            break;
 
-                    }
+                    };
+
+
+
                 }
 
-            }
-
+            } while (!ConfirmChoice(message));
         }
 
         private static void GetMeatToppings()
         {
-            Console.WriteLine("Do you want meats on your pizza?");
+            string message = "Are you sure of choice ? ";
             Console.WriteLine("1) for Yes or 2) for No.");
-            string input = Console.ReadLine();
 
-            if (input == "1")
+
+            do
             {
 
                 bool flag = false;
                 while (!flag)
                 {
-                    Console.WriteLine("Meats(zero or more )Each option $0.75 extra.The user can select or unselect the options until done.");
+                    
+                    ConsoleKeyInfo choice = Console.ReadKey(true);
                     Console.WriteLine("1) Bacon     ($0.75)");
                     Console.WriteLine("2) Ham       ($0.75) ");
                     Console.WriteLine("3) Pepporoni ($0.75)");
                     Console.WriteLine("4) Sausage   ($0.75)");
-                    switch (Console.ReadLine()[0])
+                    
+
+                    switch (choice.KeyChar)
                     {
                         case '1':
-                            meatsOfPizza = "Bacon";flag = true; wantMeats = true; return;
-                        ;
+                            meatsOfPizza = "Bacon"; flag = true;meatsTotal = "Bacon";meats = 0.75; wantMeats = true; break;
+                            
+                            ;
 
                         case '2':
-                            meatsOfPizza = "Ham"; flag = true; wantMeats = true; return;
-                            
-                           
+                            meatsOfPizza = "Ham"; flag = true; meatsTotal = "Ham"; meats = 0.75; wantMeats = true; break;
+
+
 
                         case '3':
-                            meatsOfPizza = "Pepporoni"; flag = true; wantMeats = true; return;
-                            
+                            meatsOfPizza = "Pepporoni"; flag = true; meatsTotal = "Pepperoni"; meats = 0.75; wantMeats = true; break;
+
 
                         case '4':
-                            meatsOfPizza = "Sausage"; flag = true; wantMeats = true; return;
-                            
-                           
-                        
+                            meatsOfPizza = "Sausage"; flag = true; meatsTotal = "Sausage"; meats = 0.75; wantMeats = true; break;
+
+
+
 
                         default:
 
 
-                        Console.WriteLine("Please enter a valid value");
+                            Console.WriteLine("Please enter a valid value");
+                            choice = Console.ReadKey(true);
+                            break;
+                    };
 
-                        break;
-                    }
-
-
-
-
-                }
+                    Console.WriteLine("meats" + meatsTotal);
 
 
-            }
+                };
+
+
+            } while (!ConfirmChoice(message));
 
 
         }
 
         private static void GetSizeOrder()
         {
+                  string message = "Are you sure of choice ? ";
 
-            bool flag = false;
-            while (!flag)
+
+            do
             {
-                Console.WriteLine("Size(one is required)");
-                Console.WriteLine("1) Small($5)");
-                Console.WriteLine("2) Meduim($6.25)");
-                Console.WriteLine("3) Large(8.75");
-
-                string input = Console.ReadLine();
-                switch (input[0])
+                bool flag = false;
+                while (!flag)
                 {
-                    case '1':
-                    sizeOfPizza  = "Small";
-                    flag = true;
-                    wantSize = true;
-                    return;
+                   
+                    Console.WriteLine("1) Small($5)");
+                    Console.WriteLine("2) Meduim($6.25)");
+                    Console.WriteLine("3) Large(8.75");
+                    ConsoleKeyInfo choice = Console.ReadKey(true);
 
-                    case '2':
-                    sizeOfPizza = "Medium";
-                    flag = true;
-                    wantSize = true;
-                    return;
+                    switch (choice.KeyChar)
 
-                    case '3':
-                    sizeOfPizza = "Large";
-                    flag = true;
-                    wantSize = true;
-                    return;
+                    {
+                        case '1':
+                            sizeOfPizza = "Small";
+                            flag = true;
+                            wantSize = true;
+                            sizeTotal = "small";
+                            size = 5.00;
+                            break;
 
-                    default:
+                        case '2':
+                            sizeOfPizza = "Medium";
+                            flag = true;
+                            wantSize = true;
+                            sizeTotal = "Meduim";
+                            size = 6.25;
+                            break;
 
-                    Console.WriteLine("Please enter a valid value");
+                        case '3':
+                            sizeOfPizza = "Large";
+                            flag = true;
+                            wantSize = true;
+                            sizeTotal = "Large";
+                            size = 8.75;
+                            break;
 
-                    break;
+                        default:
+
+                            Console.WriteLine("Please enter a valid value");
+
+                            break;
+                    };
+                    Console.WriteLine("size" + sizeTotal);
                 };
-            }
 
+            } while (!ConfirmChoice (message )) ;
 
+        
+        
+         PriceOfPizza();
         }
 
         private static string sizeOfPizza;
@@ -527,8 +530,61 @@ namespace PizzaCreator
         private static string sauceOfPizza;
         private static string vegetablesOfPizza;
         private static string meatsOfPizza;
+
+
+
+    
+
+
+
+        private static bool ConfirmChoice(string message)
+        {
+
+            do
+            {
+                Console.WriteLine($"{message} (Y/N)\n");
+                ConsoleKeyInfo key = Console.ReadKey(true);
+
+                switch (key.KeyChar)
+                {
+                    case 'Y':
+                    case 'y':
+                        return true;
+
+                    case 'N':
+                    case 'n':
+                        return false;
+
+                    default:
+                        Console.WriteLine("Please enter Y)es or N)o.");
+                        break;
+
+                };
+            } while (true);
+        }
+
+        private static string sizeTotal = "";
+        private static string meatsTotal = "";
+        private static string vegetablesTotal = "";
+        private static string sauceTotal = "";
+        private static string cheeseTotal = "";
+        private static string deliveryTotal = "";
+        private static double size;
+        private static double meats = 0;
+        private static double vegetables = 0;
+        private static double sauce;
+        private static double cheese;
+        private static double delivery;
+        private static double priceOfPizza;
     }
 }
+
+
+
+
+
+    
+
 
 
 
