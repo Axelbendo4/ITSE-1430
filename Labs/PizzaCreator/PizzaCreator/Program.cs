@@ -31,16 +31,7 @@ namespace PizzaCreator
         }
         private static bool DisplayMenu()
         {
-            bool[] menu = new bool[18];
-
-
-
-
-
-
-
-
-
+           
             Console.WriteLine("N)ew Order");
             Console.WriteLine("M)odify Order");
             Console.WriteLine("D)isplay Order");
@@ -54,7 +45,7 @@ namespace PizzaCreator
                 {
                     case 'n':
                     case 'N':
-                        NewOrder(menu);
+                        NewOrder();
                         return true;
 
                     case 'm':
@@ -134,7 +125,7 @@ namespace PizzaCreator
 
         }
 
-        private static void NewOrder(bool[] men)
+        private static void NewOrder()
         {
             GetSizeOrder();
             GetMeatToppings();
