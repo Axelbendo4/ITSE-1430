@@ -27,5 +27,10 @@ namespace CharacterCreator.Winforms
                 return;
             Close();
         }
+
+        private void MainForm_Load( object sender, EventArgs e )
+        {
+
+        }
     }
 }
