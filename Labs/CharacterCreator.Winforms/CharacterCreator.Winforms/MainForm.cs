@@ -16,8 +16,16 @@ namespace CharacterCreator.Winforms
         {
             InitializeComponent();
         }
+        private void fileToolStripMenuItem_Click(object sender , EventArgs e)
+        {
 
+        }
         
-        
+        private void OnExit (object sender , EventArgs e)
+        {
+            if (MessageBox.Show("you want to exit ?", "Close", MessageBoxButtons.YesNo) == DialogResult.No)
+                return;
+            Close();
+        }
     }
 }
