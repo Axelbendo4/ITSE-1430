@@ -16,21 +16,22 @@ namespace CharacterCreator.Winforms
         {
             InitializeComponent();
         }
-        private void fileToolStripMenuItem_Click(object sender , EventArgs e)
-        {
+       
 
-        }
-        
-        private void OnExit (object sender , EventArgs e)
+        private void ExitFile (object sender , EventArgs e)
         {
             if (MessageBox.Show("you want to exit ?", "Close", MessageBoxButtons.YesNo) == DialogResult.No)
                 return;
             Close();
         }
 
-        private void MainForm_Load( object sender, EventArgs e )
+        private void CreatrorHelp ( object sender, EventArgs e )
         {
-
+            MessageBox.Show(this, "Axel Bendo\n ITSE 1430\n Character Creator ", "About", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            Close();
+           
         }
+
+
     }
 }
