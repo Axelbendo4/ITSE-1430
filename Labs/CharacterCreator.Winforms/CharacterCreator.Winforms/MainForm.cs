@@ -20,8 +20,8 @@ namespace CharacterCreator.Winforms
         {
 
         }
-        
-        private void OnExit (object sender , EventArgs e)
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("you want to exit ?", "Close", MessageBoxButtons.YesNo) == DialogResult.No)
                 return;
@@ -33,9 +33,31 @@ namespace CharacterCreator.Winforms
 
         }
 
-        private void aboutToolStripMenuItem_Click( object sender, EventArgs e )
+        
+
+        private void newToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = new ToolStripMenuItem();
+            
+            
+        }
+
+        
+
+        private void characterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void helpToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MessageBox.Show(this, "Axel Gaucen Bendo\n ITSE 1430\n  Charactere Creator ", "About", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
+
 }
