@@ -10,40 +10,57 @@ using System.Windows.Forms;
 
 namespace CharacterCreator.Winforms
 {
-    public partial class MainForm : Form
+    public partial class    MainForm : Form
     {
         public MainForm()
         {
             InitializeComponent();
         }
+        private void fileToolStripMenuItem_Click(object sender , EventArgs e)
+        {
+
+        }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Are you sure you want to exit?", "Close", MessageBoxButtons.YesNo) == DialogResult.No) 
+            if (MessageBox.Show("you want to exit ?", "Close", MessageBoxButtons.YesNo) == DialogResult.No)
                 return;
-
             Close();
         }
 
-        private void helpToolStripMenuItem_Click(object sender, EventArgs e)
+        private void MainForm_Load( object sender, EventArgs e )
         {
-            
+
         }
 
-        private void characterToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-           
-        }
+        
 
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var form = new CharacterForm();
+
             if (form.ShowDialog(this) == DialogResult.Cancel)
                 return;
+
+
         }
+
+        
+
+        private void characterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void helpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+           
+        }
+
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(this, "Axel Gaucen Bendo\nITSE1430\nCharacter Creator", "About", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            MessageBox.Show(this, "Axel Gaucen Bendo\n ITSE 1430\n  Charactere Creator ", "About", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
     }
+
 }

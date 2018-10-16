@@ -12,11 +12,12 @@ namespace CharacterCreator.Winforms
 {
     public partial class CharacterForm : Form
     {
+        public Character Character { get; set; }
         public CharacterForm()
         {
             InitializeComponent();
         }
-        
+
         private void CharacterForm_Load(object sender, EventArgs e)
         {
 
@@ -41,40 +42,43 @@ namespace CharacterCreator.Winforms
         {
 
         }
-         
-        private void button1_Click(object sender, EventArgs e)
+
+        private void Save_Click(object sender, EventArgs e)
         {
             var character = new Character();
             character.Name = _name.Text;
-            character.Profession = _profession.Text;
+            character.Profession = _proffession.Text;
             character.Race = _race.Text;
-            character.Strength = GetInt32(strength);
-            character.Intelligence = GetInt32(intelligence);
-            character.Agility = GetInt32(agility);
+            character.Strength = GetInt32(_strength);
+            character.Intelligence = GetInt32(_intelligence);
+            character.Agility = GetInt32(_agility);
             character.Constitution = GetInt32(_constitution);
-            character.Charisma = GetInt32(charisma);
-            character.Description = Description.Text;
+            character.Charisma = GetInt32(_charisma);
+            character.Description = _Description.Text;
 
             Character = character;
             DialogResult = DialogResult.OK;
             Close();
         }
-        private int GetInt32(TextBox textBox)
-        {
-            if (String.IsNullOrEmpty(textBox.Text))
-                return 0;
-
-            if (Int32.TryParse(textBox.Text, out var value))
-                return value;
-
-            return -1;
-
-        }
-        public Character Character { get; set; }
+       
         private void Cancel_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Cancel;
             Close();
         }
     }
+    private int GetInt32 (TextBox textBox)
+    {
+        if (String.IsNullOrEmpty(textBox.Text))
+            return 0;
+
+        if (Int32.TryParse(textBox.Text, out var value))
+            return value;
+
+        return -1;
+    }
+   
+
+
 }
+
