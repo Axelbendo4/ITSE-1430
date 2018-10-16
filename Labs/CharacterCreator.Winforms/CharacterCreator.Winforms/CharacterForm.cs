@@ -12,16 +12,15 @@ namespace CharacterCreator.Winforms
 {
     public partial class CharacterForm : Form
     {
-        public Character Character { get; set; }
         public CharacterForm()
         {
             InitializeComponent();
         }
 
-        private void CharacterForm_Load(object sender, EventArgs e)
-        {
+        public Character Characters { get; set; }
 
-        }
+
+       
 
         private void textBox7_TextChanged(object sender, EventArgs e)
         {
@@ -30,55 +29,76 @@ namespace CharacterCreator.Winforms
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-
+           
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
-
+       
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
-
-        private void Save_Click(object sender, EventArgs e)
-        {
-            var character = new Character();
-            character.Name = _name.Text;
-            character.Profession = _proffession.Text;
-            character.Race = _race.Text;
-            character.Strength = GetInt32(_strength);
-            character.Intelligence = GetInt32(_intelligence);
-            character.Agility = GetInt32(_agility);
-            character.Constitution = GetInt32(_constitution);
-            character.Charisma = GetInt32(_charisma);
-            character.Description = _Description.Text;
-
-            Character = character;
-            DialogResult = DialogResult.OK;
-            Close();
-        }
-       
         private void Cancel_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Cancel;
             Close();
         }
-    }
-    private int GetInt32 (TextBox textBox)
-    {
-        if (String.IsNullOrEmpty(textBox.Text))
-            return 0;
 
-        if (Int32.TryParse(textBox.Text, out var value))
-            return value;
+        private int GetInt32(TextBox textBox)
+        {
+            if (String.IsNullOrEmpty(textBox.Text))
+                return -1;
+            if (Int32.TryParse(textBox.Text, out var value))
+                return value;
 
-        return -1;
+            return -1;
+        }
+        private void Save_Click(object sender, EventArgs e)
+        {
+            if (!Validate())
+                return;
+
+            var character = new Character();
+
+            character.Name = _txtName.Text;
+            character.Profession = _txtProfession.Text;
+            character.Race = _txtrace.Text;
+            character.Strength = GetInt32(_txtstrength);
+            character.Intelligence = GetInt32(_txtintelligence);
+            character.Agility = GetInt32(_txtagility);
+            character.Constitution = GetInt32(_txtconstitution);
+            character.Charisma = GetInt32(_txtcharisma);
+            character.Description = _txtDescription.Text;
+
+            Characters = character;
+            DialogResult = DialogResult.OK;
+            Close();
+        }
+
+        private void CharacterForm_Load(object sender, EventArgs e)
+        {
+            _txtProfession.SelectedIntex = 0;
+            _txtrace.SelectedIndex = 0;
+
+            if (Characters != null)
+            {
+                _txtName.Text = Characters.Name;
+                _txtProfession.Text = Characters.Profession;
+                _txtrace.Text = Characters.Race;
+                _txtstrength.Text = Characters.Strength.ToString();
+                _txtintelligence.Text = Characters.Intelligence.ToString();
+                _txtagility.Text = Characters.Agility.ToString();
+                _txtconstitution.Text = Characters.Constitution.ToString();
+                _txtcharisma.Text = Characters.Charisma.ToString();
+                _txtDescription.Text = Characters.Description;
+            };
+        }
     }
+    
+
    
-
-
 }
 
