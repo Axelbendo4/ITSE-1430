@@ -141,7 +141,14 @@
             // 
             // _txtProffession
             // 
+            this._txtProffession.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this._txtProffession.FormattingEnabled = true;
+            this._txtProffession.Items.AddRange(new object[] {
+            "",
+            "hunter",
+            "Preist",
+            "Rogue",
+            "Wizard"});
             this._txtProffession.Location = new System.Drawing.Point(88, 77);
             this._txtProffession.Name = "_txtProffession";
             this._txtProffession.Size = new System.Drawing.Size(100, 21);
@@ -150,7 +157,14 @@
             // 
             // _txtrace
             // 
+            this._txtrace.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this._txtrace.FormattingEnabled = true;
+            this._txtrace.Items.AddRange(new object[] {
+            "Dwarf",
+            "Elf",
+            "Gnome",
+            "Half Elf",
+            "Human"});
             this._txtrace.Location = new System.Drawing.Point(88, 112);
             this._txtrace.Name = "_txtrace";
             this._txtrace.Size = new System.Drawing.Size(100, 21);
