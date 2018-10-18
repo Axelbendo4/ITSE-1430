@@ -58,7 +58,9 @@ namespace CharacterCreator.Winforms
         }
         private void Save_Click( object sender, EventArgs e )
         {
-
+            if (ValidateChildren())
+                return;
+           //if( _txtName.
             var character = new Character();
             character.Name = _txtName.Text;
             character.Profession = _txtProfession.Text;
@@ -80,6 +82,7 @@ namespace CharacterCreator.Winforms
             _txtProfession.TabIndex = 0;
             _txtrace.TabIndex = 0;
             _txtProffession.Items.Add("fighter");
+            
             if (Characters != null)
             {
                 _txtName.Text = Characters.Name;
