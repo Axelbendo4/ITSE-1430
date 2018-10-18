@@ -35,6 +35,8 @@
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Edit = new System.Windows.Forms.ToolStripMenuItem();
+            this.Delete = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,14 +64,16 @@
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(92, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // characterToolStripMenuItem
             // 
             this.characterToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.newToolStripMenuItem});
+            this.newToolStripMenuItem,
+            this.Edit,
+            this.Delete});
             this.characterToolStripMenuItem.Name = "characterToolStripMenuItem";
             this.characterToolStripMenuItem.Size = new System.Drawing.Size(70, 20);
             this.characterToolStripMenuItem.Text = "Character";
@@ -96,9 +100,23 @@
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            // 
+            // Edit
+            // 
+            this.Edit.Name = "Edit";
+            this.Edit.Size = new System.Drawing.Size(152, 22);
+            this.Edit.Text = "Edit";
+            this.Edit.Click += new System.EventHandler(this.OnCharacterEdit);
+            // 
+            // Delete
+            // 
+            this.Delete.Name = "Delete";
+            this.Delete.Size = new System.Drawing.Size(152, 22);
+            this.Delete.Text = "Delete";
+            this.Delete.Click += new System.EventHandler(this.OnCharacterDelete);
             // 
             // MainForm
             // 
@@ -110,7 +128,7 @@
             this.MinimumSize = new System.Drawing.Size(260, 420);
             this.Name = "MainForm";
             this.Text = "Character Creator";
-            
+            this.Load += new System.EventHandler(this.MainForm_Load_1);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -127,6 +145,8 @@
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem characterToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem Edit;
+        private System.Windows.Forms.ToolStripMenuItem Delete;
     }
 }
 

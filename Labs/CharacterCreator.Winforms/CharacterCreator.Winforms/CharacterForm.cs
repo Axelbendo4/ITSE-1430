@@ -22,32 +22,32 @@ namespace CharacterCreator.Winforms
 
 
 
-        private void textBox7_TextChanged( object sender, EventArgs e )
+        private void textBox7_TextChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void textBox1_TextChanged( object sender, EventArgs e )
+        private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void comboBox1_SelectedIndexChanged( object sender, EventArgs e )
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void comboBox2_SelectedIndexChanged( object sender, EventArgs e )
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
-        private void Cancel_Click( object sender, EventArgs e )
+        private void Cancel_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Cancel;
             Close();
         }
 
-        private int GetInt32( TextBox textBox )
+        private int GetInt32(TextBox textBox)
         {
             if (String.IsNullOrEmpty(textBox.Text))
                 return -1;
@@ -56,11 +56,11 @@ namespace CharacterCreator.Winforms
 
             return -1;
         }
-        private void Save_Click( object sender, EventArgs e )
+        private void Save_Click(object sender, EventArgs e)
         {
             if (ValidateChildren())
                 return;
-           //if( _txtName.
+
             var character = new Character();
             character.Name = _txtName.Text;
             character.Profession = _txtProfession.Text;
@@ -77,12 +77,12 @@ namespace CharacterCreator.Winforms
             Close();
         }
 
-        private void CharacterForm_Load( object sender, EventArgs e )
+        private void CharacterForm_Load(object sender, EventArgs e)
         {
-            _txtProfession.TabIndex = 0;
-            _txtrace.TabIndex = 0;
+            _txtProffession.SelectedIndex = 0;
+            _txtrace.SelectedIndex = 0;
             _txtProffession.Items.Add("fighter");
-            
+
             if (Characters != null)
             {
                 _txtName.Text = Characters.Name;
@@ -95,10 +95,91 @@ namespace CharacterCreator.Winforms
                 _txtcharisma.Text = Characters.Charisma.ToString();
                 _txtDescription.Text = Characters.Description;
             };
+
+            ValidateChildren();
+        }
+
+
+
+
+        private void OnValidateName(object sender, CancelEventArgs e)
+        {
+            var control = sender as TextBox;
+
+            if (String.IsNullOrEmpty(control.Text))
+            {
+                _errors.SetError(control, "Name is resquired");
+                e.Cancel = true;
+            }
+            else
+                _errors.SetError(control, "");
+
+        }
+
+        private void OnValidateStrength(object sender, CancelEventArgs e)
+        {
+            var control = sender as TextBox;
+            var result = GetInt32(control);
+            if (result < 0)
+            {
+                _errors.SetError(control, "Must be between 1-100");
+                e.Cancel = true;
+            }
+            else
+                _errors.SetError(control, "");
+        }
+
+        private void OnValidateIntelligence(object sender, CancelEventArgs e)
+        {
+            var control = sender as TextBox;
+            var result = GetInt32(control);
+            if (result < 0)
+            {
+                _errors.SetError(control, "Must be between 1-100");
+                e.Cancel = true;
+            }
+            else
+                _errors.SetError(control, "");
+
+        }
+
+        private void OnValidateAgility(object sender, CancelEventArgs e)
+        {
+            var control = sender as TextBox;
+            var result = GetInt32(control);
+            if (result < 0)
+            {
+                _errors.SetError(control, "Must be between 1-100");
+                e.Cancel = true;
+            }
+            else
+                _errors.SetError(control, "");
+        }
+
+        private void OnValidateConstitution(object sender, CancelEventArgs e)
+        {
+            var control = sender as TextBox;
+            var result = GetInt32(control);
+            if (result < 0)
+            {
+                _errors.SetError(control, "Must be between 1-100");
+                e.Cancel = true;
+            }
+            else
+                _errors.SetError(control, "");
+        }
+
+        private void OnValidateCharisma(object sender, CancelEventArgs e)
+        {
+            var control = sender as TextBox;
+            var result = GetInt32(control);
+            if (result < 0)
+            {
+                _errors.SetError(control, "Must be between 1-100");
+                e.Cancel = true;
+            }
+            else
+                _errors.SetError(control, "");
         }
     }
-    
-
-   
 }
-
