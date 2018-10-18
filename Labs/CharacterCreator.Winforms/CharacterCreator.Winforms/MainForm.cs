@@ -26,11 +26,7 @@ namespace CharacterCreator.Winforms
             if (MessageBox.Show("you want to exit ?", "Close", MessageBoxButtons.YesNo) == DialogResult.No)
                 return;
             Close();
-        }
-
-       
-
-
+    }
 
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -41,9 +37,7 @@ namespace CharacterCreator.Winforms
 
 
         }
-
-        
-
+       
         private void characterToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
@@ -53,18 +47,18 @@ namespace CharacterCreator.Winforms
         {
            
         }
-
-        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show(this, "Axel Gaucen Bendo\n ITSE 1430\n  Charactere Creator ", "About", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-
         private void MainForm_Load(object sender, EventArgs e)
         {
             _listCharacters.DisplayMember = "Name";
             RefreshCharacters();
 
         }
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(this, "Axel Gaucen Bendo\n ITSE 1430\n  Charactere Creator ", "About", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+       
 
         private void OnCharacterAdd(object sender, EventArgs e)
         {
@@ -123,9 +117,6 @@ namespace CharacterCreator.Winforms
 
         private DatabaseofCharacter _database = new DatabaseofCharacter();
 
-        private void MainForm_Load_1(object sender, EventArgs e)
-        {
-
-        }
+       
     }
 }
