@@ -38,7 +38,7 @@ namespace CharacterCreator.Winforms
 
         }
 
-        private void MainForm_Load( object sender, EventArgs e )
+        private void OnLoad( object sender, EventArgs e )
         {
             _listCharacters.DisplayMember = "Name";
             RefreshCharacters();
