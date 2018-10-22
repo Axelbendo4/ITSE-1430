@@ -21,14 +21,14 @@ namespace CharacterCreator.Winforms
 
         }
 
-        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        private void OnexitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("you want to exit ?", "Close", MessageBoxButtons.YesNo) == DialogResult.No)
                 return;
             Close();
     }
 
-        private void newToolStripMenuItem_Click(object sender, EventArgs e)
+        private void OnnewToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var form = new CharacterForm();
 
@@ -37,21 +37,11 @@ namespace CharacterCreator.Winforms
 
 
         }
-       
-        private void characterToolStripMenuItem_Click(object sender, EventArgs e)
-        {
 
-        }
-
-        private void helpToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-           
-        }
-        private void MainForm_Load(object sender, EventArgs e)
+        private void MainForm_Load( object sender, EventArgs e )
         {
             _listCharacters.DisplayMember = "Name";
             RefreshCharacters();
-
         }
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -66,7 +56,7 @@ namespace CharacterCreator.Winforms
             if (form.ShowDialog(this) == DialogResult.Cancel)
                 return;
 
-            _database.Add(form.Characters);
+            Database.Add(form.Characters);
             RefreshCharacters();
 
         }
@@ -83,7 +73,7 @@ namespace CharacterCreator.Winforms
             if (form.ShowDialog(this) == DialogResult.Cancel)
                 return;
 
-            _database.Edit(item.Name, form.Characters);
+            Database.Edit(item.Name, form.Characters);
             RefreshCharacters();
 
         }
@@ -98,7 +88,7 @@ namespace CharacterCreator.Winforms
                       "Delete Character", MessageBoxButtons.YesNo) == DialogResult.No)
                 return;
 
-            _database.Remove(item.Name);
+            Database.Remove(item.Name);
             RefreshCharacters();
         }
 
@@ -109,13 +99,13 @@ namespace CharacterCreator.Winforms
 
         private void RefreshCharacters()
         {
-            var characters = _database.GetAll();
+            var characters = Database.GetAll();
 
             _listCharacters.Items.Clear();
             _listCharacters.Items.AddRange(characters);
         }
 
-        private DatabaseofCharacter _database = new DatabaseofCharacter();
+        private DatabaseofCharacter Database = new DatabaseofCharacter();
 
        
     }

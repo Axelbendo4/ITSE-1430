@@ -58,7 +58,7 @@ namespace CharacterCreator.Winforms
         }
         private void Save_Click(object sender, EventArgs e)
         {
-            if (ValidateChildren())
+            if (!ValidateChildren())
                 return;
 
             var character = new Character();

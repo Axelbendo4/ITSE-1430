@@ -164,6 +164,7 @@
             this._txtrace.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this._txtrace.FormattingEnabled = true;
             this._txtrace.Items.AddRange(new object[] {
+            "",
             "Dwarf",
             "Elf",
             "Gnome",
@@ -261,6 +262,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.ClientSize = new System.Drawing.Size(320, 523);
             this.Controls.Add(this.Cancel);
             this.Controls.Add(this.Save);
