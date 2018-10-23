@@ -16,10 +16,7 @@ namespace CharacterCreator.Winforms
         {
             InitializeComponent();
         }
-        private void fileToolStripMenuItem_Click(object sender , EventArgs e)
-        {
-
-        }
+       
 
         private void OnexitToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -34,8 +31,9 @@ namespace CharacterCreator.Winforms
 
             if (form.ShowDialog(this) == DialogResult.Cancel)
                 return;
-
-
+            Character Name = form.Characters;
+            Database.Add(Name);
+            RefreshCharacters();
         }
 
         private void OnLoad( object sender, EventArgs e )
