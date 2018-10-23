@@ -63,7 +63,7 @@ namespace CharacterCreator.Winforms
 
             var character = new Character();
             character.Name = _txtName.Text;
-            character.Profession = _txtProfession.Text;
+            character.Profession = _txtProffession.Text;
             character.Race = _txtrace.Text;
             character.Strength = GetInt32(_txtstrength);
             character.Intelligence = GetInt32(_txtintelligence);
@@ -86,7 +86,7 @@ namespace CharacterCreator.Winforms
             if (Characters != null)
             {
                 _txtName.Text = Characters.Name;
-                _txtProfession.Text = Characters.Profession;
+                _txtProffession.Text = Characters.Profession;
                 _txtrace.Text = Characters.Race;
                 _txtstrength.Text = Characters.Strength.ToString();
                 _txtintelligence.Text = Characters.Intelligence.ToString();
