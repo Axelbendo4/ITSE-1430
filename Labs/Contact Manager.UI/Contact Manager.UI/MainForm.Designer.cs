@@ -52,6 +52,7 @@
             this.Onfile.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.OnFileExit});
             this.Onfile.Name = "Onfile";
+            this.Onfile.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
             this.Onfile.Size = new System.Drawing.Size(37, 20);
             this.Onfile.Text = "File";
             // 
@@ -73,6 +74,7 @@
             // OnHelpAbout
             // 
             this.OnHelpAbout.Name = "OnHelpAbout";
+            this.OnHelpAbout.ShortcutKeys = System.Windows.Forms.Keys.F1;
             this.OnHelpAbout.Size = new System.Drawing.Size(180, 22);
             this.OnHelpAbout.Text = "About";
             this.OnHelpAbout.Click += new System.EventHandler(this.OnHelpAbout_Click);
