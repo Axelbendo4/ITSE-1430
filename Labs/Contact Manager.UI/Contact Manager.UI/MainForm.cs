@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Contact_Manager.UI
+namespace ContactManager.UI
 {
     public partial class MainForm : Form
     {

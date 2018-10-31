@@ -45,11 +45,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ContactManager.cs">
+    <Compile Include="ContactForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ContactManager.Designer.cs">
-      <DependentUpon>ContactManager.cs</DependentUpon>
+    <Compile Include="ContactForm.Designer.cs">
+      <DependentUpon>ContactForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -59,8 +59,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="ContactManager.resx">
-      <DependentUpon>ContactManager.cs</DependentUpon>
+    <EmbeddedResource Include="ContactForm.resx">
+      <DependentUpon>ContactForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

@@ -1,4 +1,4 @@
-﻿namespace Contact_Manager.UI
+﻿namespace ContactManager.UI
 {
     partial class MainForm
     {
@@ -33,6 +33,7 @@
             this.OnFileExit = new System.Windows.Forms.ToolStripMenuItem();
             this.Onhelp = new System.Windows.Forms.ToolStripMenuItem();
             this.OnHelpAbout = new System.Windows.Forms.ToolStripMenuItem();
+            this.Contact = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -40,6 +41,7 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.Onfile,
+            this.Contact,
             this.Onhelp});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -75,9 +77,15 @@
             // 
             this.OnHelpAbout.Name = "OnHelpAbout";
             this.OnHelpAbout.ShortcutKeys = System.Windows.Forms.Keys.F1;
-            this.OnHelpAbout.Size = new System.Drawing.Size(180, 22);
+            this.OnHelpAbout.Size = new System.Drawing.Size(126, 22);
             this.OnHelpAbout.Text = "About";
             this.OnHelpAbout.Click += new System.EventHandler(this.OnHelpAbout_Click);
+            // 
+            // Contact
+            // 
+            this.Contact.Name = "Contact";
+            this.Contact.Size = new System.Drawing.Size(61, 20);
+            this.Contact.Text = "Contact";
             // 
             // MainForm
             // 
@@ -103,6 +111,7 @@
         private System.Windows.Forms.ToolStripMenuItem OnFileExit;
         private System.Windows.Forms.ToolStripMenuItem Onhelp;
         private System.Windows.Forms.ToolStripMenuItem OnHelpAbout;
+        private System.Windows.Forms.ToolStripMenuItem Contact;
     }
 }
 

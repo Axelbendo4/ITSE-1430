@@ -8,15 +8,23 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Contact_Manager.UI
+namespace ContactManager.UI
 {
-    public partial class ContactManager : Form
+    public partial class ContactForm : Form
     {
-        public ContactManager()
+        public ContactForm()
         {
             InitializeComponent();
         }
+
+   
+
+        private void OnCancel_Click( object sender, EventArgs e )
+        {
+            DialogResult = DialogResult.Cancel;
+            Close();
+        }
     }
-
-
+    
+    
 }

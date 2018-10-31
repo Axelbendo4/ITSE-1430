@@ -1,6 +1,6 @@
-﻿namespace Contact_Manager.UI
+﻿namespace ContactManager.UI
 {
-    partial class ContactManager
+    partial class ContactForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.Onsave = new System.Windows.Forms.Button();
+            this.OnSave = new System.Windows.Forms.Button();
             this.OnCancel = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -36,14 +36,15 @@
             this.OnEmail = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // Onsave
+            // OnSave
             // 
-            this.Onsave.Location = new System.Drawing.Point(55, 257);
-            this.Onsave.Name = "Onsave";
-            this.Onsave.Size = new System.Drawing.Size(75, 23);
-            this.Onsave.TabIndex = 0;
-            this.Onsave.Text = "Save";
-            this.Onsave.UseVisualStyleBackColor = true;
+            this.OnSave.Location = new System.Drawing.Point(55, 257);
+            this.OnSave.Name = "OnSave";
+            this.OnSave.Size = new System.Drawing.Size(75, 23);
+            this.OnSave.TabIndex = 0;
+            this.OnSave.Text = "Save";
+            this.OnSave.UseVisualStyleBackColor = true;
+           
             // 
             // OnCancel
             // 
@@ -53,6 +54,7 @@
             this.OnCancel.TabIndex = 1;
             this.OnCancel.Text = "Cancel";
             this.OnCancel.UseVisualStyleBackColor = true;
+            this.OnCancel.Click += new System.EventHandler(this.OnCancel_Click);
             // 
             // textBox1
             // 
@@ -86,7 +88,7 @@
             this.OnEmail.TabIndex = 5;
             this.OnEmail.Text = "Email";
             // 
-            // ContactManager
+            // ContactForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -96,8 +98,8 @@
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.OnCancel);
-            this.Controls.Add(this.Onsave);
-            this.Name = "ContactManager";
+            this.Controls.Add(this.OnSave);
+            this.Name = "ContactForm";
             this.Text = "ContactManager";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -106,7 +108,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button Onsave;
+        private System.Windows.Forms.Button OnSave;
         private System.Windows.Forms.Button OnCancel;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
