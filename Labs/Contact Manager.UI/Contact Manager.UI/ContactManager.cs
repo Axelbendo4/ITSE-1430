@@ -17,4 +17,6 @@ namespace Contact_Manager.UI
             InitializeComponent();
         }
     }
+
+
 }
