@@ -31,9 +31,9 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.Onfile = new System.Windows.Forms.ToolStripMenuItem();
             this.OnFileExit = new System.Windows.Forms.ToolStripMenuItem();
+            this.Contact = new System.Windows.Forms.ToolStripMenuItem();
             this.Onhelp = new System.Windows.Forms.ToolStripMenuItem();
             this.OnHelpAbout = new System.Windows.Forms.ToolStripMenuItem();
-            this.Contact = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,9 +61,16 @@
             // OnFileExit
             // 
             this.OnFileExit.Name = "OnFileExit";
-            this.OnFileExit.Size = new System.Drawing.Size(180, 22);
+            this.OnFileExit.Size = new System.Drawing.Size(92, 22);
             this.OnFileExit.Text = "Exit";
             this.OnFileExit.Click += new System.EventHandler(this.OnFileExit_Click);
+            // 
+            // Contact
+            // 
+            this.Contact.Name = "Contact";
+            this.Contact.Size = new System.Drawing.Size(61, 20);
+            this.Contact.Text = "Contact";
+          
             // 
             // Onhelp
             // 
@@ -80,12 +87,6 @@
             this.OnHelpAbout.Size = new System.Drawing.Size(126, 22);
             this.OnHelpAbout.Text = "About";
             this.OnHelpAbout.Click += new System.EventHandler(this.OnHelpAbout_Click);
-            // 
-            // Contact
-            // 
-            this.Contact.Name = "Contact";
-            this.Contact.Size = new System.Drawing.Size(61, 20);
-            this.Contact.Text = "Contact";
             // 
             // MainForm
             // 

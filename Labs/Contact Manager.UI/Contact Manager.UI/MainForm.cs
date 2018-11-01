@@ -33,6 +33,7 @@ namespace ContactManager.UI
         {
             MessageBox.Show(this, "Axel Gaucen Bendo\n ITSE 1430\n  Contact Manager ", "About", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
-    
+
+       
     }
 }
