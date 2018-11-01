@@ -32,8 +32,10 @@
             this.Onfile = new System.Windows.Forms.ToolStripMenuItem();
             this.OnFileExit = new System.Windows.Forms.ToolStripMenuItem();
             this.Contact = new System.Windows.Forms.ToolStripMenuItem();
+            this.OnaddContact = new System.Windows.Forms.ToolStripMenuItem();
             this.Onhelp = new System.Windows.Forms.ToolStripMenuItem();
             this.OnHelpAbout = new System.Windows.Forms.ToolStripMenuItem();
+            this._listContacts = new System.Windows.Forms.ListBox();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -67,10 +69,18 @@
             // 
             // Contact
             // 
+            this.Contact.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.OnaddContact});
             this.Contact.Name = "Contact";
             this.Contact.Size = new System.Drawing.Size(61, 20);
             this.Contact.Text = "Contact";
-          
+            // 
+            // OnaddContact
+            // 
+            this.OnaddContact.Name = "OnaddContact";
+            this.OnaddContact.Size = new System.Drawing.Size(96, 22);
+            this.OnaddContact.Text = "Add";
+            this.OnaddContact.Click += new System.EventHandler(this.OnaddContact_Click);
             // 
             // Onhelp
             // 
@@ -88,16 +98,24 @@
             this.OnHelpAbout.Text = "About";
             this.OnHelpAbout.Click += new System.EventHandler(this.OnHelpAbout_Click);
             // 
+            // _listContacts
+            // 
+            this._listContacts.FormattingEnabled = true;
+            this._listContacts.Location = new System.Drawing.Point(0, 27);
+            this._listContacts.Name = "_listContacts";
+            this._listContacts.Size = new System.Drawing.Size(120, 95);
+            this._listContacts.TabIndex = 1;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(240, 258);
+            this.Controls.Add(this._listContacts);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
             this.Text = "Contact Manager";
-            this.Load += new System.EventHandler(this.OnLoad);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -113,6 +131,8 @@
         private System.Windows.Forms.ToolStripMenuItem Onhelp;
         private System.Windows.Forms.ToolStripMenuItem OnHelpAbout;
         private System.Windows.Forms.ToolStripMenuItem Contact;
+        private System.Windows.Forms.ToolStripMenuItem OnaddContact;
+        private System.Windows.Forms.ListBox _listContacts;
     }
 }
 

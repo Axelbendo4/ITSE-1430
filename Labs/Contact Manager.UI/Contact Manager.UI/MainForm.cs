@@ -17,9 +17,12 @@ namespace ContactManager.UI
             InitializeComponent();
         }
 
-        private void OnLoad(object sender, EventArgs e)
+        private void OnLoad( EventArgs e)
         {
+            base.OnLoad(e);
 
+            _listContacts.DisplayMember = "Name";
+            RefreshContacts();
         }
 
         private void OnFileExit_Click( object sender, EventArgs e )
@@ -34,6 +37,15 @@ namespace ContactManager.UI
             MessageBox.Show(this, "Axel Gaucen Bendo\n ITSE 1430\n  Contact Manager ", "About", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-       
+        private void OnaddContact_Click(object sender, EventArgs e)
+        {
+            var form = new ContactForm();
+
+            if (form.ShowDialog(this) == DialogResult.Cancel)
+                return;
+
+            Database.Add(form.Contact);
+            RefreshContacts();
+        }
     }
 }

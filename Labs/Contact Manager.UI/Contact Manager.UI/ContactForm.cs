@@ -18,6 +18,15 @@ namespace ContactManager.UI
         }
 
         public Contact Contact { get; set; }
+        private void ContactForm_Load(object sender, EventArgs e)
+        {
+            if (Contact != null)
+            {
+                _textName.Text = Contact.Name;
+                _txtEmailAddress.Text = Contact.EmailAddress;
+            }
+
+        }
 
         private void OnCancel_Click(object sender, EventArgs e)
         {
@@ -46,35 +55,34 @@ namespace ContactManager.UI
             };
 
         }
-            
+
 
         private void OnValidateName(object sender, CancelEventArgs e)
         {
-                var control = sender as TextBox;
+            var control = sender as TextBox;
 
-                if (String.IsNullOrEmpty(control.Text))
-                {
-                    _errors.SetError(control, "Name is required to add Contact");
-                    e.Cancel = true;
-                }
-                else
-                    _errors.SetError(control, "");
+            if (String.IsNullOrEmpty(control.Text))
+            {
+                _errors.SetError(control, "Name is required to add Contact");
+                e.Cancel = true;
+            }
+            else
+                _errors.SetError(control, "");
         }
 
-            private void OnValidateEmail(object sender, CancelEventArgs e)
+        private void OnValidateEmail(object sender, CancelEventArgs e)
+        {
+            var control = sender as TextBox;
+
+            if (String.IsNullOrEmpty(control.Text))
             {
-                var control = sender as TextBox;
-
-                if (String.IsNullOrEmpty(control.Text))
-                {
-                    _errors.SetError(control, "An Email Address is required to add a contact");
-                    e.Cancel = true;
-                }
-                else
-                    _errors.SetError(control, "");
+                _errors.SetError(control, "An Email Address is required to add a contact");
+                e.Cancel = true;
             }
-    
+            else
+                _errors.SetError(control, "");
+        }
 
-
+       
     }
 }
