@@ -17,13 +17,13 @@ namespace ContactManager.UI
             InitializeComponent();
         }
 
-        public Contact Contact { get; set; }
+        public Contact contact { get; set; }
         private void ContactForm_Load(object sender, EventArgs e)
         {
-            if (Contact != null)
+            if (contact != null)
             {
-                _textName.Text = Contact.Name;
-                _txtEmailAddress.Text = Contact.EmailAddress;
+                _textName.Text = contact.Name;
+                _txtEmailAddress.Text = contact.EmailAddress;
             }
 
         }
@@ -49,7 +49,7 @@ namespace ContactManager.UI
                 if (MessageBox.Show(this, "Is this contacts' information correct?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
 
-                Contact = contact;
+                this.contact = contact;
                 DialogResult = DialogResult.OK;
                 Close();
 
