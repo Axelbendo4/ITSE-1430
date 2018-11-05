@@ -44,8 +44,9 @@ namespace ContactManager.UI
                 Name = this._textName.Text,
                 EmailAddress = _txtEmailAddress.Text
             };
+          
 
-            if (MessageBox.Show(this, "Is this contacts' information correct?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show(this, "Is this contacts' information correct?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
 
                 Contact = contact;

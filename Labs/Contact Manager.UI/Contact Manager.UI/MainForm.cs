@@ -17,7 +17,7 @@ namespace ContactManager.UI
             InitializeComponent();
         }
 
-        private void OnLoad( EventArgs e)
+        protected override void OnLoad( EventArgs e)
         {
             base.OnLoad(e);
 
@@ -44,8 +44,22 @@ namespace ContactManager.UI
             if (form.ShowDialog(this) == DialogResult.Cancel)
                 return;
 
-            Database.Add(form.Contact);
+            Database.Add(contact);
             RefreshContacts();
+
+
+
+        }
+
+        private void RefreshContacts()
+        {
+            var contacts = from m in Database.GetAll()
+                           orderby m.Name
+                           select m;
+
+            _listContacts.Items.Clear();
+            _listContacts.Items.AddRange(contacts.ToArray());
+
         }
     }
 }
