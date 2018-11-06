@@ -38,6 +38,20 @@ namespace ContactManager
                        EmailAddress = c.EmailAddress
                    };
         }
+        public void RemoveContact(string name)
+        {
+            var contact = FindByName(name);
+            if (contact != null)
+                _items.Remove(contact);
+        }
+        public void EditContact(string name, Contact contact)
+        {
+            RemoveContact(name);
+            Add(contact);
+        }
+
+        
+        //private List<Contact> _items = new List<Contact>();
     }
 
 

@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace ContactManager
 {
-    class ValidationofContact
+    public static class ObjectValidator
     {
-
 
     }
 }

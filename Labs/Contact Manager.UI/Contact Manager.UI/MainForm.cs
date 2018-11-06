@@ -61,5 +61,68 @@ namespace ContactManager.UI
             _listContacts.Items.AddRange(contacts.ToArray());
 
         }
+
+        private void OnEditContact_Click(object sender, EventArgs e)
+        {
+            EditContact();
+        }
+
+        private void EditContact()
+        {
+
+
+            var item = GetSelectedContact();
+            if (item == null)
+                return;
+
+            var form = new ContactForm();
+            form.contact = item;
+            if (form.ShowDialog(this) == DialogResult.Cancel)
+                return;
+
+            _database.EditContact(item.Name, form.contact);
+            RefreshContacts();
+
+
+
+        }
+        private void OnContactDoubleClick(object sender, EventArgs e)
+        {
+            EditContact();
+        }
+        private Contact GetSelectedContact()
+        {
+            return _listContacts.SelectedItem as Contact;
+        }
+
+        private void OnDeleteContact_Click(object sender, EventArgs e)
+        {
+           
+
+            if (MessageBox.Show("Are you sure you want to Delete this Contact?",
+                     "Delete Contact", MessageBoxButtons.YesNo) == DialogResult.No)
+                return;
+
+            DeleteContact();
+           
+        }
+
+        private void DeleteContact()
+        {
+
+            var item = GetSelectedContact();
+            if (item == null)
+                return;
+
+            _database.RemoveContact(item.Name);
+            RefreshContacts();
+
+
+        }
+
+
+
+        
     }
+
 }
