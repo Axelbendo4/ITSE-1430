@@ -36,6 +36,7 @@
             this.Onhelp = new System.Windows.Forms.ToolStripMenuItem();
             this.OnHelpAbout = new System.Windows.Forms.ToolStripMenuItem();
             this._listContacts = new System.Windows.Forms.ListBox();
+            this.Delete = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -70,7 +71,8 @@
             // contact
             // 
             this.contact.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.OnAddContact});
+            this.OnAddContact,
+            this.Delete});
             this.contact.Name = "contact";
             this.contact.Size = new System.Drawing.Size(61, 20);
             this.contact.Text = "Contact";
@@ -78,7 +80,7 @@
             // OnAddContact
             // 
             this.OnAddContact.Name = "OnAddContact";
-            this.OnAddContact.Size = new System.Drawing.Size(152, 22);
+            this.OnAddContact.Size = new System.Drawing.Size(180, 22);
             this.OnAddContact.Text = "Add";
             this.OnAddContact.Click += new System.EventHandler(this.OnaddContact_Click);
             // 
@@ -100,11 +102,18 @@
             // 
             // _listContacts
             // 
+            this._listContacts.Dock = System.Windows.Forms.DockStyle.Fill;
             this._listContacts.FormattingEnabled = true;
-            this._listContacts.Location = new System.Drawing.Point(0, 27);
+            this._listContacts.Location = new System.Drawing.Point(0, 24);
             this._listContacts.Name = "_listContacts";
-            this._listContacts.Size = new System.Drawing.Size(120, 95);
+            this._listContacts.Size = new System.Drawing.Size(240, 234);
             this._listContacts.TabIndex = 1;
+            // 
+            // Delete
+            // 
+            this.Delete.Name = "Delete";
+            this.Delete.Size = new System.Drawing.Size(180, 22);
+            this.Delete.Text = "Delete";
             // 
             // MainForm
             // 
@@ -133,6 +142,7 @@
         private System.Windows.Forms.ToolStripMenuItem contact;
         private System.Windows.Forms.ToolStripMenuItem OnAddContact;
         private System.Windows.Forms.ListBox _listContacts;
+        private System.Windows.Forms.ToolStripMenuItem Delete;
     }
 }
 

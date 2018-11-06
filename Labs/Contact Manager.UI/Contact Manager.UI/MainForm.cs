@@ -36,7 +36,7 @@ namespace ContactManager.UI
         {
             MessageBox.Show(this, "Axel Gaucen Bendo\n ITSE 1430\n  Contact Manager ", "About", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
-
+        private Database _database = new Database();
         private void OnaddContact_Click(object sender, EventArgs e)
         {
             var form = new ContactForm();
@@ -44,7 +44,7 @@ namespace ContactManager.UI
             if (form.ShowDialog(this) == DialogResult.Cancel)
                 return;
 
-            Database.Add(contact);
+            _database.Add(form.contact);
             RefreshContacts();
 
 
@@ -53,7 +53,7 @@ namespace ContactManager.UI
 
         private void RefreshContacts()
         {
-            var contacts = from m in Database.GetAll()
+            var contacts = from m in  _database.GetAll()
                            orderby m.Name
                            select m;
 

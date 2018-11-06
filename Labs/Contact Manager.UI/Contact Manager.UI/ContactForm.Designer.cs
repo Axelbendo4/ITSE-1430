@@ -108,7 +108,7 @@
             this.Controls.Add(this._textName);
             this.Controls.Add(this.OnCancel);
             this.Controls.Add(this.OnSave);
-            this.Name = "ContactForm";
+            //this.Name = "ContactForm";
             this.Text = "ContactManager";
             this.Load += new System.EventHandler(this.ContactForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this._errors)).EndInit();
