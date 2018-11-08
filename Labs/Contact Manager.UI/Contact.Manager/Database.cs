@@ -49,10 +49,9 @@ namespace ContactManager
             RemoveContact(name);
             Add(contact);
         }
-
         
-        //private List<Contact> _items = new List<Contact>();
-    }
+
+   }
 
 
 

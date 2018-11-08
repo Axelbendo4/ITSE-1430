@@ -120,9 +120,17 @@ namespace ContactManager.UI
 
         }
 
+        private void OnSendMessage_Click(object sender, EventArgs e)
+        {
+            var item = GetSelectedContact();
+            if (item == null)
+                return;
 
-
-        
+            var form = new MessageForm();
+            form.Contact = item;
+            if (form.ShowDialog(this) == DialogResult.Cancel)
+                return;
+        }
     }
 
 }

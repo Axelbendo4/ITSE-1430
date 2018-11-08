@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.OnSave = new System.Windows.Forms.Button();
             this.OnCancel = new System.Windows.Forms.Button();
-            this._textName = new System.Windows.Forms.TextBox();
+            this._txtName = new System.Windows.Forms.TextBox();
             this._txtEmailAddress = new System.Windows.Forms.TextBox();
             this.Name = new System.Windows.Forms.Label();
             this._txtEmailAdress = new System.Windows.Forms.Label();
@@ -59,13 +59,13 @@
             this.OnCancel.UseVisualStyleBackColor = true;
             this.OnCancel.Click += new System.EventHandler(this.OnCancel_Click);
             // 
-            // _textName
+            // _txtName
             // 
-            this._textName.Location = new System.Drawing.Point(182, 43);
-            this._textName.Name = "_textName";
-            this._textName.Size = new System.Drawing.Size(100, 20);
-            this._textName.TabIndex = 2;
-            this._textName.Validating += new System.ComponentModel.CancelEventHandler(this.OnValidateName);
+            this._txtName.Location = new System.Drawing.Point(182, 43);
+            this._txtName.Name = "_txtName";
+            this._txtName.Size = new System.Drawing.Size(100, 20);
+            this._txtName.TabIndex = 2;
+            this._txtName.Validating += new System.ComponentModel.CancelEventHandler(this.OnValidateName);
             // 
             // _txtEmailAddress
             // 
@@ -105,7 +105,7 @@
             this.Controls.Add(this._txtEmailAdress);
             this.Controls.Add(this.Name);
             this.Controls.Add(this._txtEmailAddress);
-            this.Controls.Add(this._textName);
+            this.Controls.Add(this._txtName);
             this.Controls.Add(this.OnCancel);
             this.Controls.Add(this.OnSave);
             //this.Name = "ContactForm";
@@ -121,7 +121,7 @@
 
         private System.Windows.Forms.Button OnSave;
         private System.Windows.Forms.Button OnCancel;
-        private System.Windows.Forms.TextBox _textName;
+        private System.Windows.Forms.TextBox _txtName;
         private System.Windows.Forms.TextBox _txtEmailAddress;
         private System.Windows.Forms.Label Name;
         private System.Windows.Forms.Label _txtEmailAdress;

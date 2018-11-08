@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{95CD51AD-DA04-4848-92FD-ECA8F3F68103}</ProjectGuid>
+    <ProjectGuid>{3CDBBDC9-35F3-4FF2-8D06-C5796611C842}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Contact.Manager</RootNamespace>
-    <AssemblyName>Contact.Manager</AssemblyName>
+    <RootNamespace>ContactManager.Memory</RootNamespace>
+    <AssemblyName>ContactManager.Memory</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,12 +40,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Contact.cs" />
-    <Compile Include="Database.cs" />
-    <Compile Include="IMessageServices.cs" />
-    <Compile Include="MessageSendDatabase.cs" />
-    <Compile Include="ObjectValidator.cs" />
+    <Compile Include="MemoryContactDatabase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Contact.Manager\ContactManager.csproj">
+      <Project>{95cd51ad-da04-4848-92fd-eca8f3f68103}</Project>
+      <Name>ContactManager</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
