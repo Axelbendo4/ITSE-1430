@@ -43,7 +43,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.Contacts = new System.Windows.Forms.Label();
-            this.SendMessage = new System.Windows.Forms.Label();
+            this._SentMessage = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -131,7 +131,7 @@
             // 
             this.OnHelpAbout.Name = "OnHelpAbout";
             this.OnHelpAbout.ShortcutKeys = System.Windows.Forms.Keys.F1;
-            this.OnHelpAbout.Size = new System.Drawing.Size(126, 22);
+            this.OnHelpAbout.Size = new System.Drawing.Size(152, 22);
             this.OnHelpAbout.Text = "About";
             this.OnHelpAbout.Click += new System.EventHandler(this.OnHelpAbout_Click);
             // 
@@ -178,21 +178,21 @@
             this.Contacts.TabIndex = 5;
             this.Contacts.Text = "Contacts";
             // 
-            // SendMessage
+            // _SentMessage
             // 
-            this.SendMessage.AutoSize = true;
-            this.SendMessage.Location = new System.Drawing.Point(530, 28);
-            this.SendMessage.Name = "SendMessage";
-            this.SendMessage.Size = new System.Drawing.Size(80, 13);
-            this.SendMessage.TabIndex = 6;
-            this.SendMessage.Text = "Sent Messages";
+            this._SentMessage.AutoSize = true;
+            this._SentMessage.Location = new System.Drawing.Point(530, 28);
+            this._SentMessage.Name = "_SentMessage";
+            this._SentMessage.Size = new System.Drawing.Size(80, 13);
+            this._SentMessage.TabIndex = 6;
+            this._SentMessage.Text = "Sent Messages";
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(844, 491);
-            this.Controls.Add(this.SendMessage);
+            this.Controls.Add(this._SentMessage);
             this.Controls.Add(this.Contacts);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -226,7 +226,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label Contacts;
-        private System.Windows.Forms.Label SendMessage;
+        private System.Windows.Forms.Label _SentMessage;
     }
 }
 

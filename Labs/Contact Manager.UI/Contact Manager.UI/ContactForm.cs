@@ -22,7 +22,7 @@ namespace ContactManager.UI
         {
             if (contact != null)
             {
-                _textName.Text = contact.Name;
+                _txtName.Text = contact.Name;
                 _txtEmailAddress.Text = contact.EmailAddress;
             }
 
@@ -41,10 +41,11 @@ namespace ContactManager.UI
 
             var contact = new Contact()
             {
-                Name = this._textName.Text,
+                Name = this._txtName.Text,
                 EmailAddress = _txtEmailAddress.Text
             };
-          
+            var results = ObjectValidator.Validate(contact);
+            foreach (var result in results)
 
                 if (MessageBox.Show(this, "Is this contacts' information correct?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
@@ -54,7 +55,7 @@ namespace ContactManager.UI
                 Close();
 
             };
-
+            
         }
 
 
