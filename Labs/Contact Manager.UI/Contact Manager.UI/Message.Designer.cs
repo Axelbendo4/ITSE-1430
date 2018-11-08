@@ -1,4 +1,4 @@
-﻿namespace Contact_Manager.UI
+﻿namespace ContactManager.UI
 {
     partial class Message
     {
@@ -67,6 +67,7 @@
             this._txtMessage.Name = "_txtMessage";
             this._txtMessage.Size = new System.Drawing.Size(100, 20);
             this._txtMessage.TabIndex = 3;
+           
             // 
             // Message
             // 
