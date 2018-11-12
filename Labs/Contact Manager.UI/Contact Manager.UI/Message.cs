@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Message = ContactManager.MessageSendDatabase;
 
 namespace ContactManager.UI
 {

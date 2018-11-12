@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ContactManager.Memory;
 
 namespace ContactManager.UI
 {
@@ -82,7 +83,7 @@ namespace ContactManager.UI
             if (form.ShowDialog(this) == DialogResult.Cancel)
                 return;
 
-            _database.EditContact(item.Name, form.contact);
+            _database.Edit(item.Name, form.contact);
             RefreshContacts();
 
 
