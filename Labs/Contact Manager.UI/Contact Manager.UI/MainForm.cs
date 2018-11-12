@@ -119,7 +119,7 @@ namespace ContactManager.UI
             if (item == null)
                 return;
 
-            _database.RemoveContact(item.Name);
+            _database.Remove(item.Name);
             RefreshContacts();
 
 

@@ -34,8 +34,8 @@ namespace ContactManager.UI
 
             if (Message != null)
             {
-                _txtName.Text = Message.Name;
-                _txtEmailAddress.Text = Message.txtEmailAddress;
+                _txtName.Text = Message.Name.Text;
+                _txtEmailAddress.Text = Message.txtEmailAddress.Text;
             }
 
             ValidateChildren();
