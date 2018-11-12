@@ -19,7 +19,10 @@ namespace ContactManager.UI
 
         public Contact Contact { get; internal set; }
         public MessageForm Message { get; private set; }
-
+        private void OnCancel_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
         private void Message_Load(object sender, EventArgs e)
         {
             if (Contact != null)
@@ -37,10 +40,7 @@ namespace ContactManager.UI
             ValidateChildren();
         }
 
-        private void OnCancel_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
+        
 
         private void OnButtonSend_Click(object sender, EventArgs e)
         {

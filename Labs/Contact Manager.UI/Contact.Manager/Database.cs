@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ContactManager
 {
-   public class Database
+   public  class Database 
     {
 
         private List<Contact> _items = new List<Contact>();
