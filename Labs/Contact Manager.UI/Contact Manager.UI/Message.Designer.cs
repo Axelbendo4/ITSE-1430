@@ -32,7 +32,7 @@
             this._Message = new System.Windows.Forms.Label();
             this._txtSubject = new System.Windows.Forms.TextBox();
             this._txtMessage = new System.Windows.Forms.TextBox();
-            this.EmailAddress = new System.Windows.Forms.Label();
+            this.txtEmailAddress = new System.Windows.Forms.Label();
             this.Name = new System.Windows.Forms.Label();
             this._txtEmailAddress = new System.Windows.Forms.TextBox();
             this._txtName = new System.Windows.Forms.TextBox();
@@ -74,14 +74,14 @@
             this._txtMessage.Size = new System.Drawing.Size(100, 20);
             this._txtMessage.TabIndex = 3;
             // 
-            // EmailAddress
+            // txtEmailAddress
             // 
-            this.EmailAddress.AutoSize = true;
-            this.EmailAddress.Location = new System.Drawing.Point(59, 171);
-            this.EmailAddress.Name = "EmailAddress";
-            this.EmailAddress.Size = new System.Drawing.Size(70, 13);
-            this.EmailAddress.TabIndex = 4;
-            this.EmailAddress.Text = "EmailAddress";
+            this.txtEmailAddress.AutoSize = true;
+            this.txtEmailAddress.Location = new System.Drawing.Point(59, 171);
+            this.txtEmailAddress.Name = "txtEmailAddress";
+            this.txtEmailAddress.Size = new System.Drawing.Size(70, 13);
+            this.txtEmailAddress.TabIndex = 4;
+            this.txtEmailAddress.Text = "EmailAddress";
             // 
             // Name
             // 
@@ -136,12 +136,12 @@
             this.Controls.Add(this._txtName);
             this.Controls.Add(this._txtEmailAddress);
             this.Controls.Add(this.Name);
-            this.Controls.Add(this.EmailAddress);
+            this.Controls.Add(this.txtEmailAddress);
             this.Controls.Add(this._txtMessage);
             this.Controls.Add(this._txtSubject);
             this.Controls.Add(this._Message);
             this.Controls.Add(this.Subject);
-            this.Name = "MessageForm";
+            //this.Name = "MessageForm";
             this.Text = "Message";
             this.Load += new System.EventHandler(this.Message_Load);
             this.ResumeLayout(false);
@@ -155,7 +155,7 @@
         private System.Windows.Forms.Label _Message;
         private System.Windows.Forms.TextBox _txtSubject;
         private System.Windows.Forms.TextBox _txtMessage;
-        private System.Windows.Forms.Label EmailAddress;
+        private System.Windows.Forms.Label txtEmailAddress;
         private System.Windows.Forms.Label Name;
         private System.Windows.Forms.TextBox _txtEmailAddress;
         private System.Windows.Forms.TextBox _txtName;

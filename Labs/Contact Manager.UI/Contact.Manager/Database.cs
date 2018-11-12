@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ContactManager
 {
-   public  class Database 
+   public abstract class Database : IContactDatabase
     {
 
         private List<Contact> _items = new List<Contact>();
@@ -49,9 +49,17 @@ namespace ContactManager
             RemoveContact(name);
             Add(contact);
         }
-        
 
-   }
+        public void Edit(string name, Contact contact)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Remove(string name)
+        {
+            throw new NotImplementedException();
+        }
+    }
 
 
 

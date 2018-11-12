@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ContactManager.UI
 {
-    interface IMessageServices
+    public interface IMessageServices
     {
         void Send(Message message);
 

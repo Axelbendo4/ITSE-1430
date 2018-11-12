@@ -48,9 +48,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MemoryContactDatabase.cs" />
+    <Compile Include="MemoryMessageDatabse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Contact Manager.UI\ContactManager.UI.csproj">
+      <Project>{f7d656f8-8213-4612-90a0-13764ad42d8d}</Project>
+      <Name>ContactManager.UI</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Contact.Manager\ContactManager.csproj">
       <Project>{95cd51ad-da04-4848-92fd-eca8f3f68103}</Project>
       <Name>ContactManager</Name>

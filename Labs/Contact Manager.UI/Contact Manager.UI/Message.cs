@@ -27,13 +27,13 @@ namespace ContactManager.UI
         {
             if (Contact != null)
             {
-                Name.Text = Contact.Name;
-                EmailAddress.Text = Contact.EmailAddress;
+                _txtName.Text = Contact.Name;
+                _txtEmailAddress.Text = Contact.EmailAddress;
             }
 
             if (Message != null)
             {
-                Name.Text = Message.Name;
+                _txtName.Text = Message.Name;
                 _txtEmailAddress.Text = Message.txtEmailAddress;
             }
 
@@ -55,7 +55,7 @@ namespace ContactManager.UI
                 Name = Name.Text,
                 EmailAddress = _txtEmailAddress.Text,
                 Subject = _txtSubject.Text,
-                Message = _txtMessage.Text,
+                ComposeMessage = _txtMessage.Text,
             };
 
 
@@ -66,7 +66,6 @@ namespace ContactManager.UI
 
         }
 
-        
-
+       
     }
 }
