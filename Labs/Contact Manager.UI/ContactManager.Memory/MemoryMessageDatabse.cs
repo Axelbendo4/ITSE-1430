@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ContactManager.Memory
 {
-    public class MemoryMessageDatabse
+    public class MemoryMessageDatabse : MessageSendDatabase
     {
         protected override void SendCore(Message message)
         {
