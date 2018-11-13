@@ -22,7 +22,7 @@ namespace ContactManager
             return false;
         }
 
-        public void SendMessage(Message message)
+        public void Send(Message message)
         {
             if (message == null)
                 return;

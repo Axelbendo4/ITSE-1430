@@ -33,7 +33,7 @@
             this.OnFileExit = new System.Windows.Forms.ToolStripMenuItem();
             this.contact = new System.Windows.Forms.ToolStripMenuItem();
             this.OnAddContact = new System.Windows.Forms.ToolStripMenuItem();
-            this._SendMessage = new System.Windows.Forms.ToolStripMenuItem();
+            this._SentMessages = new System.Windows.Forms.ToolStripMenuItem();
             this.OnEditContact = new System.Windows.Forms.ToolStripMenuItem();
             this.OnDeleteContact = new System.Windows.Forms.ToolStripMenuItem();
             this.Onhelp = new System.Windows.Forms.ToolStripMenuItem();
@@ -82,7 +82,7 @@
             // 
             this.contact.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.OnAddContact,
-            this._SendMessage,
+            this._SentMessages,
             this.OnEditContact,
             this.OnDeleteContact});
             this.contact.Name = "contact";
@@ -99,10 +99,10 @@
             // 
             // _SendMessage
             // 
-            this._SendMessage.Name = "_SendMessage";
-            this._SendMessage.Size = new System.Drawing.Size(180, 22);
-            this._SendMessage.Text = "Send Message";
-            this._SendMessage.Click += new System.EventHandler(this.OnSendMessage_Click);
+            this._SentMessages.Name = "_SendMessage";
+            this._SentMessages.Size = new System.Drawing.Size(180, 22);
+            this._SentMessages.Text = "Send Message";
+            this._SentMessages.Click += new System.EventHandler(this.OnSendMessage_Click);
             // 
             // OnEditContact
             // 
@@ -221,7 +221,7 @@
         private System.Windows.Forms.ListBox _listContacts;
         private System.Windows.Forms.ToolStripMenuItem OnEditContact;
         private System.Windows.Forms.ToolStripMenuItem OnDeleteContact;
-        private System.Windows.Forms.ToolStripMenuItem _SendMessage;
+        private System.Windows.Forms.ToolStripMenuItem _SentMessages;
         private System.Windows.Forms.ListBox _listMessages;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;

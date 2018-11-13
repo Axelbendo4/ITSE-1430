@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,17 +19,17 @@ namespace ContactManager.UI
             InitializeComponent();
         }
 
-        protected override void OnLoad( EventArgs e)
+        protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
 
             _listContacts.DisplayMember = "Name";
             _listMessages.DisplayMember = "Name";
             RefreshContacts();
-            RefreshMessages();
+            //RefreshMessages();
         }
-        
-        private void OnFileExit_Click( object sender, EventArgs e )
+
+        private void OnFileExit_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Do you want to exit ?", "Close", MessageBoxButtons.YesNo) == DialogResult.No)
                 return;
@@ -36,11 +37,11 @@ namespace ContactManager.UI
         }
 
         private ContactDatabase _database = new ContactDatabase();
-        private void OnHelpAbout_Click( object sender, EventArgs e )
+        private void OnHelpAbout_Click(object sender, EventArgs e)
         {
             MessageBox.Show(this, "Axel Gaucen Bendo\n ITSE 1430\n  Contact Manager ", "About", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
-       
+
         private void OnaddContact_Click(object sender, EventArgs e)
         {
             var form = new ContactForm();
@@ -57,7 +58,7 @@ namespace ContactManager.UI
 
         private void RefreshContacts()
         {
-            var contacts = from m in  _database.GetAll()
+            var contacts = from m in _database.GetAll()
                            orderby m.Name
                            select m;
 
@@ -94,7 +95,7 @@ namespace ContactManager.UI
         {
             EditContact();
         }
-       
+
 
         private Contact GetSelectedContact()
         {
@@ -103,14 +104,14 @@ namespace ContactManager.UI
 
         private void OnDeleteContact_Click(object sender, EventArgs e)
         {
-           
+
 
             if (MessageBox.Show("Are you sure you want to Delete this Contact?",
                      "Delete Contact", MessageBoxButtons.YesNo) == DialogResult.No)
                 return;
 
             DeleteContact();
-           
+
         }
 
         private void DeleteContact()
@@ -132,7 +133,7 @@ namespace ContactManager.UI
                 DeleteContact();
             };
         }
-       
+
         private void OnSendMessage_Click(object sender, EventArgs e)
         {
             var item = GetSelectedContact();
@@ -143,26 +144,24 @@ namespace ContactManager.UI
             form.Contact = item;
             if (form.ShowDialog(this) == DialogResult.Cancel)
                 return;
-            _SendMessage.Send(form.Message);
-            RefreshMessages();
+            //    _SentMessages.Send(form.Message);
+            //    RefreshMessages();
+
+            //}
+            //private void RefreshMessages()
+            //{
+            //    // var messages = from m in _SentMessages.GetAll()
+            //    select m;
+
+
+            //    _listMessages.Items.Clear();
+            //    _listMessages.Items.AddRange(messages.ToArray());
+            //}
+
+
 
         }
-        private void RefreshMessages()
-        {
-            var messages = from m in _SendMessage.GetAll()
-                           select m;
-
-
-            _listMessages.Items.Clear();
-            _listMessages.Items.AddRange(messages.ToArray());
-        }
-
-
-
-
 
     }
-
-
-
 }
+
