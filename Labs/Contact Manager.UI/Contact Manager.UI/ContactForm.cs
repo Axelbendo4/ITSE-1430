@@ -17,13 +17,13 @@ namespace ContactManager.UI
             InitializeComponent();
         }
 
-        public Contact contact { get; set; }
+        public Contact Contact { get; set; }
         private void ContactForm_Load(object sender, EventArgs e)
         {
-            if (contact != null)
+            if (Contact != null)
             {
-                _txtName.Text = contact.Name;
-                _txtEmailAddress.Text = contact.EmailAddress;
+                _txtName.Text = Contact.Name;
+                _txtEmailAddress.Text = Contact.EmailAddress;
             }
 
         }
@@ -33,31 +33,6 @@ namespace ContactManager.UI
             DialogResult = DialogResult.Cancel;
             Close();
         }
-
-        private void OnSave_Click(object sender, EventArgs e)
-        {
-            if (!ValidateChildren())
-                return;
-
-            var contact = new Contact()
-            {
-                Name = this._txtName.Text,
-                EmailAddress = _txtEmailAddress.Text
-            };
-            var results = ObjectValidator.Validate(contact);
-            foreach (var result in results)
-
-                if (MessageBox.Show(this, "Is this contacts' information correct?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-
-                this.contact = contact;
-                DialogResult = DialogResult.OK;
-                Close();
-
-            };
-            
-        }
-
 
         private void OnValidateName(object sender, CancelEventArgs e)
         {
@@ -85,6 +60,29 @@ namespace ContactManager.UI
                 _errors.SetError(control, "");
         }
 
-       
+        private void OnSave_Click(object sender, EventArgs e)
+        {
+            if (!ValidateChildren())
+                return;
+
+            var contact = new Contact()
+            {
+                Name = this._txtName.Text,
+                EmailAddress = _txtEmailAddress.Text
+            };
+            var results = ObjectValidator.Validate(contact);
+            foreach (var result in results)
+
+            {
+                MessageBox.Show(this, result.ErrorMessage, "Validation Failed",
+                                 MessageBoxButtons.OK);
+                return;
+            };
+
+            Contact = contact;
+            DialogResult = DialogResult.OK;
+            Close();
+
+        }
     }
 }

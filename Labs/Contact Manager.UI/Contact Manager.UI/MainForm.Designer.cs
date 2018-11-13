@@ -93,14 +93,14 @@
             // 
             this.OnAddContact.Name = "OnAddContact";
             this.OnAddContact.ShortcutKeys = System.Windows.Forms.Keys.Insert;
-            this.OnAddContact.Size = new System.Drawing.Size(180, 22);
+            this.OnAddContact.Size = new System.Drawing.Size(149, 22);
             this.OnAddContact.Text = "Add";
             this.OnAddContact.Click += new System.EventHandler(this.OnaddContact_Click);
             // 
-            // _SendMessage
+            // _SentMessages
             // 
-            this._SentMessages.Name = "_SendMessage";
-            this._SentMessages.Size = new System.Drawing.Size(180, 22);
+            this._SentMessages.Name = "_SentMessages";
+            this._SentMessages.Size = new System.Drawing.Size(149, 22);
             this._SentMessages.Text = "Send Message";
             this._SentMessages.Click += new System.EventHandler(this.OnSendMessage_Click);
             // 
@@ -108,14 +108,14 @@
             // 
             this.OnEditContact.Name = "OnEditContact";
             this.OnEditContact.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.OnEditContact.Size = new System.Drawing.Size(180, 22);
+            this.OnEditContact.Size = new System.Drawing.Size(149, 22);
             this.OnEditContact.Text = "Edit";
             this.OnEditContact.Click += new System.EventHandler(this.OnEditContact_Click);
             // 
             // OnDeleteContact
             // 
             this.OnDeleteContact.Name = "OnDeleteContact";
-            this.OnDeleteContact.Size = new System.Drawing.Size(180, 22);
+            this.OnDeleteContact.Size = new System.Drawing.Size(149, 22);
             this.OnDeleteContact.Text = "Delete";
             this.OnDeleteContact.Click += new System.EventHandler(this.OnDeleteContact_Click);
             // 
@@ -152,6 +152,7 @@
             this._listMessages.Name = "_listMessages";
             this._listMessages.Size = new System.Drawing.Size(364, 242);
             this._listMessages.TabIndex = 2;
+            
             // 
             // panel1
             // 

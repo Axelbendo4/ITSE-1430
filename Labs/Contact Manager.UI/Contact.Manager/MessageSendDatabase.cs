@@ -1,4 +1,4 @@
-﻿using ContactManager.UI;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,18 +9,7 @@ namespace ContactManager
 {
    public abstract class MessageSendDatabase :IMessageServices
     {
-        bool IsValidEmail(string source)
-        {
-            try
-            {
-                new System.Net.Mail.MailAddress(source);
-                return true;
-            }
-            catch
-            {
-            };
-            return false;
-        }
+        
 
         public void Send(Message message)
         {

@@ -9,8 +9,8 @@ using System.Threading.Tasks;
 
 namespace ContactManager
     {
-        public abstract class ContactDatabase : IContactDatabase
-        {
+        public abstract class ContactDatabase : IContactDatabase, IMessageServices
+    {
           
             public void Add(Contact contact)
             {
@@ -44,7 +44,7 @@ namespace ContactManager
                 if (String.IsNullOrEmpty(name))
                     return;
 
-                Remove(name);
+                RemoveCore(name);
             }
 
         #region Protected Members
@@ -57,9 +57,19 @@ namespace ContactManager
         protected abstract IEnumerable<Contact> GetAllCore();
 
         protected abstract void RemoveCore(string name);
+        public abstract void Send(string emailAddress, string subject, string message);
+        public void Send(Message message)
+        {
+            throw new NotImplementedException();
+        }
+
+        IEnumerable<Message> IMessageServices.GetAllCore()
+        {
+            throw new NotImplementedException();
+        }
 
         #endregion
-       
+
     }
 
 

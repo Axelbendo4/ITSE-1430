@@ -43,6 +43,11 @@ namespace ContactManager.Memory
                 _items.Remove(contact);
         }
 
+        public override void Send(string emailAddress, string subject, string message)
+        {
+            throw new NotImplementedException();
+        }
+
         private List<Contact> _items = new List<Contact>();
 
     }

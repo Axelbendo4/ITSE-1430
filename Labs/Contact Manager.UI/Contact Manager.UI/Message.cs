@@ -60,16 +60,13 @@ namespace ContactManager.UI
             };
 
 
-            Message = message;
+            Message = Message;
             DialogResult = DialogResult.OK;
 
             Close();
 
         }
 
-        public static implicit operator MessageForm( Message v )
-        {
-            throw new NotImplementedException();
-        }
+       
     }
 }

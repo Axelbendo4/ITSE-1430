@@ -15,6 +15,6 @@ namespace ContactManager
         IEnumerable<Contact> GetAll();
 
         void Remove(string name);
-
+        
     }
 }

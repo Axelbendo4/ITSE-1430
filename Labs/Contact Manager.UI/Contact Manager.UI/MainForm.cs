@@ -19,7 +19,7 @@ namespace ContactManager.UI
         {
             InitializeComponent();
         }
-        private IMessageServices _sentMessages = new MemoryMessageDatabase();
+        private IContactDatabase _sentMessages = new MemoryContactDatabase();
         private IContactDatabase _database = new MemoryContactDatabase();
 
         protected override void OnLoad(EventArgs e)
@@ -29,7 +29,9 @@ namespace ContactManager.UI
             _listContacts.DisplayMember = "Name";
             _listMessages.DisplayMember = "Name";
             RefreshContacts();
-            
+            RefreshMessages();
+
+
         }
 
         private void OnFileExit_Click(object sender, EventArgs e)
@@ -52,7 +54,7 @@ namespace ContactManager.UI
             if (form.ShowDialog(this) == DialogResult.Cancel)
                 return;
 
-            _database.Add(form.contact);
+            _database.Add(form.Contact);
             RefreshContacts();
 
 
@@ -67,6 +69,9 @@ namespace ContactManager.UI
 
             _listContacts.Items.Clear();
             _listContacts.Items.AddRange(contacts.ToArray());
+
+
+           
 
         }
 
@@ -84,11 +89,11 @@ namespace ContactManager.UI
                 return;
 
             var form = new ContactForm();
-            form.contact = item;
+            form.Contact = item;
             if (form.ShowDialog(this) == DialogResult.Cancel)
                 return;
 
-            _database.Edit(item.Name, form.contact);
+            _database.Edit(item.Name, form.Contact);
             RefreshContacts();
 
 
@@ -99,7 +104,7 @@ namespace ContactManager.UI
         {
             return _listContacts.SelectedItem as Contact;
         }
-        private Message GetSelectedMessge()
+        private Message GetSelectedMessage()
         {
             return _listMessages.SelectedItem as Message;
         }
@@ -132,6 +137,14 @@ namespace ContactManager.UI
 
 
         }
+        private void RefreshMessages()
+        {
+            var messages = from m in _sentMessages.GetAll()
+                           select m;
+
+            _listMessages.Items.Clear();
+            _listMessages.Items.AddRange(messages.ToArray());
+        }
         private void OnListKeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyData == Keys.Delete)
@@ -150,11 +163,13 @@ namespace ContactManager.UI
             form.Contact = item;
             if (form.ShowDialog(this) == DialogResult.Cancel)
                 return;
-       
+            _sentMessages.Add(form.Contact);
 
+           
 
         }
 
+        
     }
 }
 
