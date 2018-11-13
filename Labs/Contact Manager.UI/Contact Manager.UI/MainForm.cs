@@ -27,7 +27,7 @@ namespace ContactManager.UI
             base.OnLoad(e);
 
             _listContacts.DisplayMember = "Name";
-            _listMessages.DisplayMember = "Name";
+            _listMessages.DisplayMember = "Message";
             RefreshContacts();
             RefreshMessages();
 
@@ -137,6 +137,22 @@ namespace ContactManager.UI
 
 
         }
+
+        private void OnSendMessage_Click(object sender, EventArgs e)
+        {
+            var item = GetSelectedContact();
+            if (item == null)
+                return;
+
+            var form = new MessageForm();
+            form.Contact = item;
+            if (form.ShowDialog(this) == DialogResult.Cancel)
+                return;
+            _sentMessages.Add(form.Contact);
+           
+
+
+        }
         private void RefreshMessages()
         {
             var messages = from m in _sentMessages.GetAll()
@@ -153,21 +169,6 @@ namespace ContactManager.UI
             };
         }
 
-        private void OnSendMessage_Click(object sender, EventArgs e)
-        {
-            var item = GetSelectedContact();
-            if (item == null)
-                return;
-
-            var form = new MessageForm();
-            form.Contact = item;
-            if (form.ShowDialog(this) == DialogResult.Cancel)
-                return;
-            _sentMessages.Add(form.Contact);
-
-           
-
-        }
 
         
     }
