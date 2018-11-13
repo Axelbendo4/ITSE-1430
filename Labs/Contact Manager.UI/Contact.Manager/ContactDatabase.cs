@@ -11,6 +11,7 @@ namespace ContactManager
     {
         public abstract class ContactDatabase : IContactDatabase
         {
+          
             public void Add(Contact contact)
             {
                 if (contact == null)
