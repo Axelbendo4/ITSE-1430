@@ -44,6 +44,10 @@ namespace ContactManager
             if (String.IsNullOrEmpty(Subject))
                 yield return new ValidationResult("Subject is required.",
                                 new[] { nameof(Subject) });
+
+
+
+
         }
 
     

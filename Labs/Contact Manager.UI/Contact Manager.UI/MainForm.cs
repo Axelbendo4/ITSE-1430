@@ -19,6 +19,8 @@ namespace ContactManager.UI
         {
             InitializeComponent();
         }
+        private IMessageServices _sentMessages = new MemoryMessageDatabase();
+        private IContactDatabase _database = new MemoryContactDatabase();
 
         protected override void OnLoad(EventArgs e)
         {
@@ -27,7 +29,7 @@ namespace ContactManager.UI
             _listContacts.DisplayMember = "Name";
             _listMessages.DisplayMember = "Name";
             RefreshContacts();
-            //RefreshMessages();
+            
         }
 
         private void OnFileExit_Click(object sender, EventArgs e)
@@ -72,7 +74,7 @@ namespace ContactManager.UI
         {
             EditContact();
         }
-
+        
         private void EditContact()
         {
 
@@ -92,18 +94,20 @@ namespace ContactManager.UI
 
 
         }
-        private void OnContactDoubleClick(object sender, EventArgs e)
-        {
-            EditContact();
-        }
-
-        private IMessageServices _sentMessages = new MemoryMessageDatabase();
-        private IContactDatabase _database = new MemoryContactDatabase();
+        
         private Contact GetSelectedContact()
         {
             return _listContacts.SelectedItem as Contact;
         }
-
+        private Message GetSelectedMessge()
+        {
+            return _listMessages.SelectedItem as Message;
+        }
+        private void OnContactDoubleClick(object sender, EventArgs e)
+        {
+            EditContact();
+        }
+       
         private void OnDeleteContact_Click(object sender, EventArgs e)
         {
 
@@ -146,20 +150,7 @@ namespace ContactManager.UI
             form.Contact = item;
             if (form.ShowDialog(this) == DialogResult.Cancel)
                 return;
-        //    _SentMessages.Send(form.Message);
-        //    RefreshMessages();
-
-        //}
-        //private void RefreshMessages()
-        //{
-        //    // var messages = from m in _SentMessages.GetAll()
-        //    select m;
-
-
-        //    _listMessages.Items.Clear();
-        //    _listMessages.Items.AddRange(messages.ToArray());
-        //}
-
+       
 
 
         }
