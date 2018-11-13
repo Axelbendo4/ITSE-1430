@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ContactManager.Memory;
+
 
 namespace ContactManager.UI
 {
@@ -34,7 +34,8 @@ namespace ContactManager.UI
                 return;
             Close();
         }
-        private Database _database = new Database();
+
+        private ContactDatabase _database = new ContactDatabase();
         private void OnHelpAbout_Click( object sender, EventArgs e )
         {
             MessageBox.Show(this, "Axel Gaucen Bendo\n ITSE 1430\n  Contact Manager ", "About", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -131,7 +132,7 @@ namespace ContactManager.UI
                 DeleteContact();
             };
         }
-
+       
         private void OnSendMessage_Click(object sender, EventArgs e)
         {
             var item = GetSelectedContact();
@@ -142,14 +143,15 @@ namespace ContactManager.UI
             form.Contact = item;
             if (form.ShowDialog(this) == DialogResult.Cancel)
                 return;
-            _SentMessage.Send(form.Message);
+            _SendMessage.Send(form.Message);
             RefreshMessages();
 
         }
         private void RefreshMessages()
         {
-            var messages = from m in _SentMessage.GetAll()
+            var messages = from m in _SendMessage.GetAll()
                            select m;
+
 
             _listMessages.Items.Clear();
             _listMessages.Items.AddRange(messages.ToArray());

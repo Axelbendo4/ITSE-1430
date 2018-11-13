@@ -8,8 +8,14 @@ namespace ContactManager.UI
 {
     public interface IMessageServices
     {
-        void Send(Message message);
+        void SendMessage( Message message );
 
-        IEnumerable<Message> GetAll();
+        IEnumerable<Message> GetAllCore();
+
+
+
+
+
     }
 }
+

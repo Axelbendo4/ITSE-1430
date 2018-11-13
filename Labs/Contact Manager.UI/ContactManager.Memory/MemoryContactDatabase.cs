@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace ContactManager.Memory
 {
-    public class MemoryContactDatabase : Database
+    public class MemoryContactDatabase : ContactDatabase
     {
 
         protected override void AddCore(Contact contact)

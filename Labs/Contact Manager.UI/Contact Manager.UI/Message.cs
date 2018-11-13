@@ -67,6 +67,9 @@ namespace ContactManager.UI
 
         }
 
-       
+        public static implicit operator MessageForm( Message v )
+        {
+            throw new NotImplementedException();
+        }
     }
 }

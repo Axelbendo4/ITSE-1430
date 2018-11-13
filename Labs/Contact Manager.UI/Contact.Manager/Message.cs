@@ -41,14 +41,6 @@ namespace ContactManager
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
 
-            //if (String.IsNullOrEmpty(Name))
-            //    yield return new ValidationResult("Name is required.",
-            //                    new[] { nameof(Name) });
-
-            //if (String.IsNullOrEmpty(EmailAddress))
-            //    yield return new ValidationResult("Email Address is required.",
-            //                    new[] { nameof(EmailAddress) });
-
             if (String.IsNullOrEmpty(Subject))
                 yield return new ValidationResult("Subject is required.",
                                 new[] { nameof(Subject) });

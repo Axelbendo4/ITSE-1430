@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ContactManager
     {
-        public abstract class Database : IContactDatabase
+        public  abstract class ContactDatabase : IContactDatabase
         {
             public void Add(Contact contact)
             {
@@ -46,21 +46,21 @@ namespace ContactManager
                 RemoveCore(name);
             }
 
-            #region Protected Members
-            protected abstract void AddCore(Contact contact);
+        #region Protected Members
+        protected abstract void AddCore( Contact contact );
 
-            protected abstract void EditCore(Contact oldContact, Contact newContact);
+        protected abstract void EditCore( Contact oldContact, Contact newContact );
 
-            protected abstract Contact FindByName(string name);
+        protected abstract Contact FindByName( string name );
 
-            protected abstract IEnumerable<Contact> GetAllCore();
+        protected abstract IEnumerable<Contact> GetAllCore();
 
-            protected abstract void RemoveCore(string name);
+        protected abstract void RemoveCore( string name );
 
-            #endregion
-        }
-
-
-
+        #endregion
     }
+
+
+
+}
 

@@ -45,7 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contact.cs" />
-    <Compile Include="Database.cs" />
+    <Compile Include="ContactDatabase.cs" />
     <Compile Include="IContactDatabase.cs" />
     <Compile Include="IMessageServices.cs" />
     <Compile Include="Message.cs" />

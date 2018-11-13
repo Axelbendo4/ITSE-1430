@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ContactManager
 {
-   public abstract class MessageSendDatabase : IMessageServices
+   public abstract class MessageSendDatabase :IMessageServices
     {
         bool IsValidEmail(string source)
         {
@@ -22,7 +22,7 @@ namespace ContactManager
             return false;
         }
 
-            public void Send(Message message)
+        public void SendMessage(Message message)
         {
             if (message == null)
                 return;
@@ -37,6 +37,11 @@ namespace ContactManager
 
         protected abstract void SendCore(Message message);
         protected abstract IEnumerable<Message> GetAllCore();
+
+        IEnumerable<Message> IMessageServices.GetAllCore()
+        {
+            throw new NotImplementedException();
+        }
     }
 
    
