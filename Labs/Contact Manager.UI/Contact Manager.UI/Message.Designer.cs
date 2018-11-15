@@ -34,7 +34,7 @@
             this._txtSubject = new System.Windows.Forms.TextBox();
             this._txtMessage = new System.Windows.Forms.TextBox();
             this.txtEmailAddress = new System.Windows.Forms.Label();
-            this.Name = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this._txtEmailAddress = new System.Windows.Forms.TextBox();
             this._txtName = new System.Windows.Forms.TextBox();
             this.OnButtonSend = new System.Windows.Forms.Button();
@@ -51,7 +51,6 @@
             this.Subject.Size = new System.Drawing.Size(43, 13);
             this.Subject.TabIndex = 0;
             this.Subject.Text = "Subject";
-            this.Subject.Validating += new System.ComponentModel.CancelEventHandler(this.OnValidatingSubject);
             // 
             // _Message
             // 
@@ -69,7 +68,7 @@
             this._txtSubject.Name = "_txtSubject";
             this._txtSubject.Size = new System.Drawing.Size(100, 20);
             this._txtSubject.TabIndex = 2;
-            this._txtSubject.Validating += new System.ComponentModel.CancelEventHandler(this.OnValidatingSubject);
+            this._txtSubject.Validating += new System.ComponentModel.CancelEventHandler(this.OnValidateSubject);
             // 
             // _txtMessage
             // 
@@ -78,6 +77,7 @@
             this._txtMessage.Name = "_txtMessage";
             this._txtMessage.Size = new System.Drawing.Size(100, 20);
             this._txtMessage.TabIndex = 3;
+            this._txtMessage.Validating += new System.ComponentModel.CancelEventHandler(this.OnvalidateMessage);
             // 
             // txtEmailAddress
             // 
@@ -88,14 +88,14 @@
             this.txtEmailAddress.TabIndex = 4;
             this.txtEmailAddress.Text = "EmailAddress";
             // 
-            // Name
+            // label1
             // 
-            this.Name.AutoSize = true;
-            this.Name.Location = new System.Drawing.Point(59, 122);
-            this.Name.Name = "Name";
-            this.Name.Size = new System.Drawing.Size(35, 13);
-            this.Name.TabIndex = 5;
-            this.Name.Text = "Name";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(59, 122);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Name";
             // 
             // _txtEmailAddress
             // 
@@ -144,13 +144,13 @@
             this.Controls.Add(this.OnButtonSend);
             this.Controls.Add(this._txtName);
             this.Controls.Add(this._txtEmailAddress);
-            this.Controls.Add(this.Name);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.txtEmailAddress);
             this.Controls.Add(this._txtMessage);
             this.Controls.Add(this._txtSubject);
             this.Controls.Add(this._Message);
             this.Controls.Add(this.Subject);
-            //this.Name = "MessageForm";
+            this.Name = "MessageForm";
             this.Text = "Message";
             this.Load += new System.EventHandler(this.MessageForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this._errors)).EndInit();
@@ -166,7 +166,7 @@
         private System.Windows.Forms.TextBox _txtSubject;
         private System.Windows.Forms.TextBox _txtMessage;
         private System.Windows.Forms.Label txtEmailAddress;
-        private System.Windows.Forms.Label Name;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox _txtEmailAddress;
         private System.Windows.Forms.TextBox _txtName;
         private System.Windows.Forms.Button OnButtonSend;

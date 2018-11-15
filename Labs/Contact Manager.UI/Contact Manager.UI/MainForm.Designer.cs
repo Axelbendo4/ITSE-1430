@@ -44,6 +44,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.Contacts = new System.Windows.Forms.Label();
             this._SentMessage = new System.Windows.Forms.Label();
+            this.OnViewMessage = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -81,8 +82,9 @@
             // contact
             // 
             this.contact.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.OnAddContact,
             this._SentMessages,
+            this.OnViewMessage,
+            this.OnAddContact,
             this.OnEditContact,
             this.OnDeleteContact});
             this.contact.Name = "contact";
@@ -93,29 +95,29 @@
             // 
             this.OnAddContact.Name = "OnAddContact";
             this.OnAddContact.ShortcutKeys = System.Windows.Forms.Keys.Insert;
-            this.OnAddContact.Size = new System.Drawing.Size(149, 22);
+            this.OnAddContact.Size = new System.Drawing.Size(152, 22);
             this.OnAddContact.Text = "Add";
             this.OnAddContact.Click += new System.EventHandler(this.OnaddContact_Click);
             // 
             // _SentMessages
             // 
             this._SentMessages.Name = "_SentMessages";
-            this._SentMessages.Size = new System.Drawing.Size(149, 22);
+            this._SentMessages.Size = new System.Drawing.Size(152, 22);
             this._SentMessages.Text = "Send Message";
             this._SentMessages.Click += new System.EventHandler(this.OnSendMessage_Click);
             // 
             // OnEditContact
             // 
             this.OnEditContact.Name = "OnEditContact";
-            this.OnEditContact.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.OnEditContact.Size = new System.Drawing.Size(149, 22);
+            this.OnEditContact.Size = new System.Drawing.Size(152, 22);
             this.OnEditContact.Text = "Edit";
             this.OnEditContact.Click += new System.EventHandler(this.OnEditContact_Click);
             // 
             // OnDeleteContact
             // 
             this.OnDeleteContact.Name = "OnDeleteContact";
-            this.OnDeleteContact.Size = new System.Drawing.Size(149, 22);
+            this.OnDeleteContact.ShortcutKeys = System.Windows.Forms.Keys.Delete;
+            this.OnDeleteContact.Size = new System.Drawing.Size(152, 22);
             this.OnDeleteContact.Text = "Delete";
             this.OnDeleteContact.Click += new System.EventHandler(this.OnDeleteContact_Click);
             // 
@@ -151,7 +153,7 @@
             this._listMessages.Location = new System.Drawing.Point(0, 0);
             this._listMessages.Name = "_listMessages";
             this._listMessages.Size = new System.Drawing.Size(364, 242);
-            this._listMessages.TabIndex = 2;
+            this._listMessages.TabIndex = 0;
             // 
             // panel1
             // 
@@ -186,6 +188,13 @@
             this._SentMessage.Size = new System.Drawing.Size(80, 13);
             this._SentMessage.TabIndex = 6;
             this._SentMessage.Text = "Sent Messages";
+            // 
+            // OnViewMessage
+            // 
+            this.OnViewMessage.Name = "OnViewMessage";
+            this.OnViewMessage.Size = new System.Drawing.Size(152, 22);
+            this.OnViewMessage.Text = "View";
+            this.OnViewMessage.Click += new System.EventHandler(this.OnViewMessage_Click);
             // 
             // MainForm
             // 
@@ -227,6 +236,7 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label Contacts;
         private System.Windows.Forms.Label _SentMessage;
+        private System.Windows.Forms.ToolStripMenuItem OnViewMessage;
     }
 }
 

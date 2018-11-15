@@ -23,7 +23,7 @@ namespace ContactManager.UI
             if (Contact != null)
             {
                 _txtName.Text = Contact.Name;
-                _txtEmailAddress.Text = Contact.EmailAddress;
+                _txtEmailAddress.Text = Contact.ContactEmailAdress;
             }
 
         }
@@ -59,7 +59,21 @@ namespace ContactManager.UI
             else
                 _errors.SetError(control, "");
         }
+        private void OnValidateEmailAddress(object sender, CancelEventArgs e)
+        {
+            var source = sender as String;
+            var result = EmailAdressValidation(source);
+            var control = sender as TextBox;
 
+            if (String.IsNullOrEmpty(control.Text) && result)
+            {
+                _errors.SetError(control, "An Email Address is required to add a contact");
+                e.Cancel = true;
+            }
+            else
+                _errors.SetError(control, "");
+
+        }
         private void OnSave_Click(object sender, EventArgs e)
         {
             if (!ValidateChildren())
@@ -68,7 +82,7 @@ namespace ContactManager.UI
             var contact = new Contact()
             {
                 Name = this._txtName.Text,
-                EmailAddress = _txtEmailAddress.Text
+                ContactEmailAdress = _txtEmailAddress.Text
             };
             var results = ObjectValidator.Validate(contact);
             foreach (var result in results)
@@ -83,6 +97,22 @@ namespace ContactManager.UI
             DialogResult = DialogResult.OK;
             Close();
 
+
+
+
         }
+
+        private bool EmailAdressValidation(string source)
+        {
+            try
+            {
+                new System.Net.Mail.MailAddress(source);
+                return true;
+            }
+            catch { };
+
+            return false;
+        }
+
     }
 }
