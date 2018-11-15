@@ -24,7 +24,7 @@ namespace ContactManager.UI
         {
             Close();
         }
-        private void Message_Load(object sender, EventArgs e)
+        private void MessageForm_Load(object sender, EventArgs e)
         {
             if (Contact != null)
             {
@@ -32,7 +32,11 @@ namespace ContactManager.UI
                 _txtEmailAddress.Text = Contact.EmailAddress;
             }
 
-
+            if (Contact != null)
+            {
+                _txtName.Text = Contact.Name;
+                _txtEmailAddress.Text = Contact.EmailAddress;
+            }
 
             ValidateChildren();
         }
@@ -45,7 +49,18 @@ namespace ContactManager.UI
 
             var contact = new Contact()
             {
-              EmailAddress = string .Join(" ", _txtEmailAddress.Text, _txtSubject.Text, _txtMessage.Text),
+                Name = Name.Text,
+                  EmailAddress = _txtEmailAddress.Text,
+                 Subject = _txtSubject.Text,
+                ComposeMessage = _txtMessage.Text,
+            };
+
+            var results = ObjectValidator.Validate(contact);
+            foreach (var result in results)
+            {
+                MessageBox.Show(this, result.ErrorMessage, "Validation Failed",
+                               MessageBoxButtons.OK);
+                return;
             };
             Contact = contact;
             DialogResult = DialogResult.OK;
@@ -54,7 +69,7 @@ namespace ContactManager.UI
                 MessageBox.Show("Subject is required", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
+            
             //var message = new Message()
             //{
             //    Name = Name.Text,

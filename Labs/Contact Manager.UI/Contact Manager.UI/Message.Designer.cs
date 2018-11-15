@@ -51,6 +51,7 @@
             this.Subject.Size = new System.Drawing.Size(43, 13);
             this.Subject.TabIndex = 0;
             this.Subject.Text = "Subject";
+            this.Subject.Validating += new System.ComponentModel.CancelEventHandler(this.OnValidatingSubject);
             // 
             // _Message
             // 
@@ -68,6 +69,7 @@
             this._txtSubject.Name = "_txtSubject";
             this._txtSubject.Size = new System.Drawing.Size(100, 20);
             this._txtSubject.TabIndex = 2;
+            this._txtSubject.Validating += new System.ComponentModel.CancelEventHandler(this.OnValidatingSubject);
             // 
             // _txtMessage
             // 
@@ -150,7 +152,7 @@
             this.Controls.Add(this.Subject);
             //this.Name = "MessageForm";
             this.Text = "Message";
-            this.Load += new System.EventHandler(this.Message_Load);
+            this.Load += new System.EventHandler(this.MessageForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this._errors)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

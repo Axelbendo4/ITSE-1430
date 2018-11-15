@@ -19,13 +19,15 @@ namespace ContactManager.UI
         {
             InitializeComponent();
         }
-        private IMessageServices _sentMessages = new MemoryContactDatabase();
+        private IContactDatabase _sentMessages = new MemoryContactDatabase();
         private IContactDatabase _database = new MemoryContactDatabase();
 
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
 
+           
+            
             _listContacts.DisplayMember = "Name";
             _listMessages.DisplayMember = "Message";
             RefreshContacts();
@@ -146,7 +148,7 @@ namespace ContactManager.UI
             form.Contact = item;
             if (form.ShowDialog(this) == DialogResult.Cancel)
                 return;
-            _sentMessages.Send(form.Contact);
+            _sentMessages.Add(form.Contact);
            
 
 

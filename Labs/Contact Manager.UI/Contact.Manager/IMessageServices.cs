@@ -8,8 +8,8 @@ namespace ContactManager
 {
     public interface IMessageServices
     {
-      void Send( Message message );
-        
+      void Send(string emailAddress, string subject, string message);
+        void Add(Contact contact);
     }
 }
 
