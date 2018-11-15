@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.Subject = new System.Windows.Forms.Label();
             this._Message = new System.Windows.Forms.Label();
             this._txtSubject = new System.Windows.Forms.TextBox();
@@ -38,6 +39,8 @@
             this._txtName = new System.Windows.Forms.TextBox();
             this.OnButtonSend = new System.Windows.Forms.Button();
             this.OnCancel = new System.Windows.Forms.Button();
+            this._errors = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this._errors)).BeginInit();
             this.SuspendLayout();
             // 
             // Subject
@@ -126,6 +129,10 @@
             this.OnCancel.UseVisualStyleBackColor = true;
             this.OnCancel.Click += new System.EventHandler(this.OnCancel_Click);
             // 
+            // _errors
+            // 
+            this._errors.ContainerControl = this;
+            // 
             // MessageForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -144,6 +151,7 @@
             //this.Name = "MessageForm";
             this.Text = "Message";
             this.Load += new System.EventHandler(this.Message_Load);
+            ((System.ComponentModel.ISupportInitialize)(this._errors)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -161,5 +169,6 @@
         private System.Windows.Forms.TextBox _txtName;
         private System.Windows.Forms.Button OnButtonSend;
         private System.Windows.Forms.Button OnCancel;
+        private System.Windows.Forms.ErrorProvider _errors;
     }
 }

@@ -18,8 +18,8 @@ namespace ContactManager.UI
             InitializeComponent();
         }
 
-        public Contact Contact { get;  set; }
-        public MessageForm Message { get;  set; }
+        public Contact Contact { get; internal set; }
+        //public MessageForm Message { get; set; }
         private void OnCancel_Click(object sender, EventArgs e)
         {
             Close();
@@ -32,37 +32,57 @@ namespace ContactManager.UI
                 _txtEmailAddress.Text = Contact.EmailAddress;
             }
 
-            
+
 
             ValidateChildren();
         }
-        
-        
+
+
         private void OnButtonSend_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(_txtSubject.Text))
+            if (!ValidateChildren())
+                return;
+
+            var contact = new Contact()
+            {
+              EmailAddress = string .Join(" ", _txtEmailAddress.Text, _txtSubject.Text, _txtMessage.Text),
+            };
+            Contact = contact;
+            DialogResult = DialogResult.OK;
+            Close();
             {
                 MessageBox.Show("Subject is required", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            var message  = new Message()
-            {
-                Name = Name.Text,
-                EmailAddress = _txtEmailAddress.Text,
-                Subject = _txtSubject.Text,
-                ComposeMessage = _txtMessage.Text,
-            };
+            //var message = new Message()
+            //{
+            //    Name = Name.Text,
+            //    EmailAddress = _txtEmailAddress.Text,
+            //    Subject = _txtSubject.Text,
+            //    ComposeMessage = _txtMessage.Text,
+            //};
 
-        
 
-            this.Message = this.Message;
-            DialogResult = DialogResult.OK;
 
-            Close();
+            //this.Message = this.Message;
+            //DialogResult = DialogResult.OK;
+
+            //Close();
 
         }
 
-       
+        private void OnValidatingSubject(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            var control = sender as TextBox;
+
+            if (String.IsNullOrEmpty(control.Text))
+            {
+                _errors.SetError(control, "Subject is required");
+                e.Cancel = true;
+            }
+            else
+                _errors.SetError(control, "");
+        }
     }
 }

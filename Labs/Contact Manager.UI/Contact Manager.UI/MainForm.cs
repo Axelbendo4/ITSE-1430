@@ -146,7 +146,7 @@ namespace ContactManager.UI
             form.Contact = item;
             if (form.ShowDialog(this) == DialogResult.Cancel)
                 return;
-            _sentMessages.Send(form.);
+            _sentMessages.Send(form.Contact);
            
 
 
