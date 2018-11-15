@@ -51,6 +51,6 @@ namespace ContactManager.Memory
         }
 
         private List<Contact> _items = new List<Contact>();
-        public Contact Contact { get; private set; }
+       
     }
 }

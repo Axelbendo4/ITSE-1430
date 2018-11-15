@@ -29,7 +29,7 @@ namespace ContactManager.UI
             _listContacts.DisplayMember = "Name";
             _listMessages.DisplayMember = "Message";
             RefreshContacts();
-            RefreshMessages();
+           
 
 
         }
@@ -143,22 +143,15 @@ namespace ContactManager.UI
                 return;
 
             var form = new MessageForm();
-            form.Message = item;
+            form.Contact = item;
             if (form.ShowDialog(this) == DialogResult.Cancel)
                 return;
-            _sentMessages.Send(form.Message);
+            _sentMessages.Send(form.);
            
 
 
         }
-        //private void RefreshMessages()
-        //{
-        //    var messages = from m in _sentMessages.GetAll()
-        //                   select m;
-
-        //    _listMessages.Items.Clear();
-        //    _listMessages.Items.AddRange(messages.ToArray());
-        //}
+       
         private void OnListKeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyData == Keys.Delete)

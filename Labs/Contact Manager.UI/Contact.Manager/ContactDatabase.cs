@@ -58,10 +58,19 @@ namespace ContactManager
 
         protected abstract void RemoveCore(string name);
         public abstract void Send(string emailAddress, string subject, string message);
+
         public void Send(Message message)
         {
             throw new NotImplementedException();
         }
+    }
+
+        
+
+
+
+
+
 
         //IEnumerable<Message> IMessageServices.GetAllCore()
         //{
@@ -79,6 +88,6 @@ namespace ContactManager
 
 
 
-}
+
 
 

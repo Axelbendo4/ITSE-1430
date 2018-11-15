@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Message = ContactManager.MessageSendDatabase;
+using Message = ContactManager;
 
 namespace ContactManager.UI
 {
@@ -18,8 +18,8 @@ namespace ContactManager.UI
             InitializeComponent();
         }
 
-        public Contact Contact { get; internal set; }
-        public MessageForm Message { get; private set; }
+        public Contact Contact { get;  set; }
+        public MessageForm Message { get;  set; }
         private void OnCancel_Click(object sender, EventArgs e)
         {
             Close();
@@ -32,15 +32,11 @@ namespace ContactManager.UI
                 _txtEmailAddress.Text = Contact.EmailAddress;
             }
 
-            if (Message != null)
-            {
-                _txtName.Text = Message.Name.Text;
-                _txtEmailAddress.Text = Message.txtEmailAddress.Text;
-            }
+            
 
             ValidateChildren();
         }
-
+        
         
         private void OnButtonSend_Click(object sender, EventArgs e)
         {
@@ -58,9 +54,9 @@ namespace ContactManager.UI
                 ComposeMessage = _txtMessage.Text,
             };
 
-           
+        
 
-            Message = Message;
+            this.Message = this.Message;
             DialogResult = DialogResult.OK;
 
             Close();

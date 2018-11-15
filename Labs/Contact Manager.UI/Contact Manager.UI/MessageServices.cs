@@ -4,16 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ContactManager;
+using ContactManager.UI;
 
-namespace Contact_Manager.UI
+namespace ContactManager.UI
 {
 
 
     public class MessageServices : IMessageServices
     {
-        public void Send( Message message )
+        public void Send(Message message)
         {
-            throw new NotImplementedException();
+           
         }
+
+      
     }
 }

@@ -9,13 +9,7 @@ namespace ContactManager
     public interface IMessageServices
     {
       void Send( Message message );
-
-        //IEnumerable<Message> GetAllCore();
-
-
-
-
-
+        
     }
 }
 
