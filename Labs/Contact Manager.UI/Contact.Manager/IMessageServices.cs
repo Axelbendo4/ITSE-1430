@@ -8,9 +8,9 @@ namespace ContactManager
 {
     public interface IMessageServices
     {
-        void Send( Message message );
+      void Send( Message message );
 
-        IEnumerable<Message> GetAllCore();
+        //IEnumerable<Message> GetAllCore();
 
 
 

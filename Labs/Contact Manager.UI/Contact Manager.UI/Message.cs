@@ -42,7 +42,6 @@ namespace ContactManager.UI
         }
 
         
-
         private void OnButtonSend_Click(object sender, EventArgs e)
         {
             if (String.IsNullOrEmpty(_txtSubject.Text))
@@ -51,7 +50,7 @@ namespace ContactManager.UI
                 return;
             }
 
-            var message = new Message()
+            var message  = new Message()
             {
                 Name = Name.Text,
                 EmailAddress = _txtEmailAddress.Text,
@@ -59,6 +58,7 @@ namespace ContactManager.UI
                 ComposeMessage = _txtMessage.Text,
             };
 
+           
 
             Message = Message;
             DialogResult = DialogResult.OK;

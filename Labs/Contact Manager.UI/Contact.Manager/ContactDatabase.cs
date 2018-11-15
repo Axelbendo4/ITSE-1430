@@ -63,10 +63,15 @@ namespace ContactManager
             throw new NotImplementedException();
         }
 
-        IEnumerable<Message> IMessageServices.GetAllCore()
-        {
-            throw new NotImplementedException();
-        }
+        //IEnumerable<Message> IMessageServices.GetAllCore()
+        //{
+        //    throw new NotImplementedException();
+        //}
+
+        //public void Send( Contact Contact )
+        //{
+        //    throw new NotImplementedException();
+        //}
 
         #endregion
 

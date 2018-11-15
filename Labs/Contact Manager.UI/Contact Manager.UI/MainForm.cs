@@ -19,7 +19,7 @@ namespace ContactManager.UI
         {
             InitializeComponent();
         }
-        private IContactDatabase _sentMessages = new MemoryContactDatabase();
+        private IMessageServices _sentMessages = new MemoryContactDatabase();
         private IContactDatabase _database = new MemoryContactDatabase();
 
         protected override void OnLoad(EventArgs e)
@@ -79,7 +79,10 @@ namespace ContactManager.UI
         {
             EditContact();
         }
-        
+        private Contact GetSelectedContact()
+        {
+            return _listContacts.SelectedItem as Contact;
+        }
         private void EditContact()
         {
 
@@ -98,11 +101,6 @@ namespace ContactManager.UI
 
 
 
-        }
-        
-        private Contact GetSelectedContact()
-        {
-            return _listContacts.SelectedItem as Contact;
         }
         private Message GetSelectedMessage()
         {
@@ -145,22 +143,22 @@ namespace ContactManager.UI
                 return;
 
             var form = new MessageForm();
-            form.Contact = item;
+            form.Message = item;
             if (form.ShowDialog(this) == DialogResult.Cancel)
                 return;
-            _sentMessages.Add(form.Contact);
+            _sentMessages.Send(form.Message);
            
 
 
         }
-        private void RefreshMessages()
-        {
-            var messages = from m in _sentMessages.GetAll()
-                           select m;
+        //private void RefreshMessages()
+        //{
+        //    var messages = from m in _sentMessages.GetAll()
+        //                   select m;
 
-            _listMessages.Items.Clear();
-            _listMessages.Items.AddRange(messages.ToArray());
-        }
+        //    _listMessages.Items.Clear();
+        //    _listMessages.Items.AddRange(messages.ToArray());
+        //}
         private void OnListKeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyData == Keys.Delete)
