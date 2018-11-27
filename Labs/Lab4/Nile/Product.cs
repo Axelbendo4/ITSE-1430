@@ -7,7 +7,7 @@ namespace Nile
 {
     /// <summary>Represents a product.</summary>
     public class Product
-    {
+    { 
         /// <summary>Gets or sets the unique identifier.</summary>
         public int Id { get; set; }
 
