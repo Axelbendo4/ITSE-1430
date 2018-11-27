@@ -140,5 +140,10 @@ namespace Nile.Windows
 
         private readonly IProductDatabase _database = new Nile.Stores.MemoryProductDatabase();
         #endregion
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(this, "Axel G Bendo\n ITSE 1430\n Fall Semester", "About", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
     }
 }
