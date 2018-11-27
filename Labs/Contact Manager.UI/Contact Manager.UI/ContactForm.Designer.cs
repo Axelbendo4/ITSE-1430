@@ -33,8 +33,8 @@
             this.OnCancel = new System.Windows.Forms.Button();
             this._txtName = new System.Windows.Forms.TextBox();
             this._txtEmailAddress = new System.Windows.Forms.TextBox();
-            this.Name = new System.Windows.Forms.Label();
-            this._txtEmailAdress = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this._errors = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this._errors)).BeginInit();
             this.SuspendLayout();
@@ -73,25 +73,25 @@
             this._txtEmailAddress.Name = "_txtEmailAddress";
             this._txtEmailAddress.Size = new System.Drawing.Size(100, 20);
             this._txtEmailAddress.TabIndex = 3;
-            this._txtEmailAddress.Validating += new System.ComponentModel.CancelEventHandler(this.OnValidateEmail);
+            this._txtEmailAddress.Validating += new System.ComponentModel.CancelEventHandler(this.OnValidateEmailAddress);
             // 
-            // Name
+            // label1
             // 
-            this.Name.AutoSize = true;
-            this.Name.Location = new System.Drawing.Point(41, 43);
-            this.Name.Name = "Name";
-            this.Name.Size = new System.Drawing.Size(35, 13);
-            this.Name.TabIndex = 4;
-            this.Name.Text = "Name";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(41, 43);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Name";
             // 
-            // _txtEmailAdress
+            // label2
             // 
-            this._txtEmailAdress.AutoSize = true;
-            this._txtEmailAdress.Location = new System.Drawing.Point(44, 131);
-            this._txtEmailAdress.Name = "_txtEmailAdress";
-            this._txtEmailAdress.Size = new System.Drawing.Size(70, 13);
-            this._txtEmailAdress.TabIndex = 5;
-            this._txtEmailAdress.Text = "EmailAddress";
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(44, 131);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(70, 13);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "EmailAddress";
             // 
             // _errors
             // 
@@ -102,13 +102,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(323, 292);
-            this.Controls.Add(this._txtEmailAdress);
-            this.Controls.Add(this.Name);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this._txtEmailAddress);
             this.Controls.Add(this._txtName);
             this.Controls.Add(this.OnCancel);
             this.Controls.Add(this.OnSave);
-            //this.Name = "ContactForm";
+            this.Name = "ContactForm";
             this.Text = "ContactManager";
             this.Load += new System.EventHandler(this.ContactForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this._errors)).EndInit();
@@ -123,8 +123,8 @@
         private System.Windows.Forms.Button OnCancel;
         private System.Windows.Forms.TextBox _txtName;
         private System.Windows.Forms.TextBox _txtEmailAddress;
-        private System.Windows.Forms.Label Name;
-        private System.Windows.Forms.Label _txtEmailAdress;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ErrorProvider _errors;
     }
 }

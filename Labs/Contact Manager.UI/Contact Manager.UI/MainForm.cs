@@ -8,31 +8,34 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ContactManager.Memory;
 
 
 namespace ContactManager.UI
 {
-    public partial class MainForm : Form
+    public partial class MainForm : Form, IMessageServices
     {
         public MainForm()
         {
             InitializeComponent();
         }
-        private IMessageServices _sentMessages = new MemoryContactDatabase();
-        private IContactDatabase _database = new MemoryContactDatabase();
+
 
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
 
+
+
             _listContacts.DisplayMember = "Name";
-            _listMessages.DisplayMember = "Message";
+            _listMessages.DisplayMember = "EmailAddress";
             RefreshContacts();
-            RefreshMessages();
+            Sent();
 
 
         }
+
+
+        private ContactDatabase _database = new ContactDatabase();
 
         private void OnFileExit_Click(object sender, EventArgs e)
         {
@@ -41,57 +44,43 @@ namespace ContactManager.UI
             Close();
         }
 
-        
+
         private void OnHelpAbout_Click(object sender, EventArgs e)
         {
             MessageBox.Show(this, "Axel Gaucen Bendo\n ITSE 1430\n  Contact Manager ", "About", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
-
+        private Contact GetSelectedContact() => _listContacts.SelectedItem as Contact;
+        private Message GetSelectedMessage() => _listMessages.SelectedItem as Message;
         private void OnaddContact_Click(object sender, EventArgs e)
         {
             var form = new ContactForm();
 
             if (form.ShowDialog(this) == DialogResult.Cancel)
                 return;
-
-            _database.Add(form.Contact);
-            RefreshContacts();
-
+            if (_database.ExistingContact(form.Contact))
+            {
+                MessageBox.Show(this, "Contact already exists", "Duplicate Contact", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                return;
+            }
+            else
+            {
+                _database.Add(form.Contact);
+                RefreshContacts();
+            };
 
 
         }
+        private void OnContactEdit(object sender, EventArgs e) => EditContact();
 
-        private void RefreshContacts()
-        {
-            var contacts = from m in _database.GetAll()
-                           orderby m.Name
-                           select m;
-
-            _listContacts.Items.Clear();
-            _listContacts.Items.AddRange(contacts.ToArray());
-
-
-           
-
-        }
-
-        private void OnEditContact_Click(object sender, EventArgs e)
-        {
-            EditContact();
-        }
-        private Contact GetSelectedContact()
-        {
-            return _listContacts.SelectedItem as Contact;
-        }
         private void EditContact()
         {
-
 
             var item = GetSelectedContact();
             if (item == null)
                 return;
 
             var form = new ContactForm();
+            form.Text = "Edit Contact";
             form.Contact = item;
             if (form.ShowDialog(this) == DialogResult.Cancel)
                 return;
@@ -102,15 +91,31 @@ namespace ContactManager.UI
 
 
         }
-        private Message GetSelectedMessage()
+        private void RefreshContacts()
         {
-            return _listMessages.SelectedItem as Message;
+            var contacts = from c in _database.GetAll()
+                           orderby c.Name
+                           select c;
+
+            _listContacts.Items.Clear();
+            _listContacts.Items.AddRange(contacts.ToArray());
+
+
+
+
         }
+        private void OnEditContact_Click(object sender, EventArgs e)
+        {
+            EditContact();
+        }
+
+
         private void OnContactDoubleClick(object sender, EventArgs e)
         {
             EditContact();
         }
-       
+
+
         private void OnDeleteContact_Click(object sender, EventArgs e)
         {
 
@@ -130,45 +135,55 @@ namespace ContactManager.UI
             if (item == null)
                 return;
 
-            _database.Remove(item.Name);
+            _database.Delete(item.Name);
             RefreshContacts();
 
 
         }
 
-        private void OnSendMessage_Click(object sender, EventArgs e)
+        private void OnSendMessage_Click(object sender, EventArgs e) => SendMessage();
+
+
+        private void SendMessage()
         {
             var item = GetSelectedContact();
             if (item == null)
                 return;
 
             var form = new MessageForm();
-            form.Message = item;
+            form.Contact = item;
             if (form.ShowDialog(this) == DialogResult.Cancel)
                 return;
-            _sentMessages.Send(form.Message);
-           
+            _database.Add(form.Message);
+            Sent();
+
 
 
         }
-        //private void RefreshMessages()
-        //{
-        //    var messages = from m in _sentMessages.GetAll()
-        //                   select m;
-
-        //    _listMessages.Items.Clear();
-        //    _listMessages.Items.AddRange(messages.ToArray());
-        //}
-        private void OnListKeyUp(object sender, KeyEventArgs e)
+        public void Sent()
         {
-            if (e.KeyData == Keys.Delete)
-            {
-                DeleteContact();
-            };
-        }
+            var messages = from e in _database.GetMessages()
+                           orderby e.ComposeMessage
+                           select e;
 
+
+            _listMessages.Items.Clear();
+            _listMessages.Items.AddRange(messages.ToArray());
+        }
+      
 
         
+
+        private void OnViewMessage_Click(object sender, EventArgs e)
+        {
+            var item = GetSelectedMessage();
+            if (item == null)
+                return;
+
+            MessageBox.Show(this, $"Email Address: {item.ComposeMessage}\nSubject: {item.Subject}\nMessage: {item._Message}", "Sent Email", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
     }
+
+  
 }
 

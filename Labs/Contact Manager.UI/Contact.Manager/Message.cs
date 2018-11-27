@@ -10,12 +10,12 @@ namespace ContactManager
     public class Message : IValidatableObject
     {
 
-        public string Name
+        public string _Message
         {
-            get => _name ?? "";
-            set => _name = value;
+            get => _message ?? "";
+            set => _message = value;
         }
-        private string _name = "";
+        private string _message = "";
 
         public string EmailAddress
         {
@@ -33,10 +33,10 @@ namespace ContactManager
 
         public string ComposeMessage
         {
-            get => _composeMessage ?? "";
-            set => _composeMessage = value;
+            get => __composeMessage ?? "";
+            set => __composeMessage = value;
         }
-        private string _composeMessage = "";
+        private string __composeMessage = "";
 
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {

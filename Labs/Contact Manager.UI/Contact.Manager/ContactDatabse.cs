@@ -4,11 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ContactManager
+namespace Contact.Manager
 {
-    public interface IMessageServices
+    interface ContactDatabse
     {
-        void Sent();
     }
 }
-
