@@ -143,7 +143,9 @@ namespace Nile.Windows
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(this, "Axel G Bendo\n ITSE 1430\n Fall Semester", "About", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            var about = new AboutBox();
+            about.ShowDialog(this);
+
         }
     }
 }
