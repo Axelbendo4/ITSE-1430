@@ -10,13 +10,15 @@ namespace Nile
    public  class ObjectValidator
    {
 
-        public static bool TryValidate(IValidatableObject value, out IEnumerable<ValidationResult> errors)
+        /// <summary>Validates an object.</summary>
+        /// <param name="value">The object to validate.</param>
+        /// <returns>The list of validation results.</returns>
+        public static IEnumerable<ValidationResult> TryValidate(IValidatableObject value)
         {
-            var context = new ValidationContext(value);
             var results = new List<ValidationResult>();
-
-            errors = results;
-            return Validator.TryValidateObject(value, context, results);
+            var context = new ValidationContext(value);
+            Validator.TryValidateObject(value, context, results, true);
+            return results;
         }
 
     }

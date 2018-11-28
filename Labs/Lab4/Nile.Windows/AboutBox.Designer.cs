@@ -42,23 +42,24 @@
             "Axel Gaucen Bendo"});
             this.listBox1.Location = new System.Drawing.Point(0, 0);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(554, 450);
+            this.listBox1.Size = new System.Drawing.Size(374, 219);
             this.listBox1.TabIndex = 0;
             // 
             // okButton
             // 
-            this.okButton.Location = new System.Drawing.Point(467, 415);
+            this.okButton.Location = new System.Drawing.Point(183, 171);
             this.okButton.Name = "okButton";
             this.okButton.Size = new System.Drawing.Size(75, 23);
             this.okButton.TabIndex = 1;
             this.okButton.Text = "&OK";
             this.okButton.UseVisualStyleBackColor = true;
+            this.okButton.Click += new System.EventHandler(this.okButton_Click);
             // 
             // AboutBox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(554, 450);
+            this.ClientSize = new System.Drawing.Size(374, 219);
             this.Controls.Add(this.okButton);
             this.Controls.Add(this.listBox1);
             this.Name = "AboutBox";
