@@ -41,8 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="NileSQL.cs" />
-    <Compile Include="NileSQLDatabase.cs" />
+    <Compile Include="NileSql.cs" />
+    <Compile Include="NileSqlDatabase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
