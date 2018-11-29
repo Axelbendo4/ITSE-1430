@@ -58,8 +58,6 @@ namespace Nile.Stores.Sql
     }
 
 
-
-
     protected override IEnumerable<Product> GetAllCore()
     {
         using (SqlConnection conn = CreateConnection())
@@ -85,8 +83,6 @@ namespace Nile.Stores.Sql
         }
     
 }
-
-       
 
        
         protected override void RemoveCore(int id)

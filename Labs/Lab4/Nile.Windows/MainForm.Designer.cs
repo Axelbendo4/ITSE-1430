@@ -42,15 +42,12 @@ namespace Nile.Windows
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this._gridProducts = new System.Windows.Forms.DataGridView();
+            this._bsProducts = new System.Windows.Forms.BindingSource(this.components);
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.isDiscontinuedDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this._bsProducts = new System.Windows.Forms.BindingSource(this.components);
             this._mainMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._gridProducts)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._bsProducts)).BeginInit();
@@ -142,7 +139,6 @@ namespace Nile.Windows
             // _gridProducts
             // 
             this._gridProducts.AllowUserToAddRows = false;
-            this._gridProducts.AllowUserToDeleteRows = false;
             this._gridProducts.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this._gridProducts.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
@@ -153,10 +149,7 @@ namespace Nile.Windows
             this.descriptionDataGridViewTextBoxColumn,
             this.priceDataGridViewTextBoxColumn,
             this.isDiscontinuedDataGridViewCheckBoxColumn,
-            this.idDataGridViewTextBoxColumn,
-            this.Column1,
-            this.Column2,
-            this.Column3});
+            this.idDataGridViewTextBoxColumn});
             this._gridProducts.DataSource = this._bsProducts;
             this._gridProducts.Dock = System.Windows.Forms.DockStyle.Fill;
             this._gridProducts.Location = new System.Drawing.Point(0, 24);
@@ -167,8 +160,14 @@ namespace Nile.Windows
             this._gridProducts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this._gridProducts.Size = new System.Drawing.Size(827, 354);
             this._gridProducts.TabIndex = 1;
+            //this._gridProducts.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this._gridProducts_CellContentClick);
             this._gridProducts.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.OnEditRow);
             this._gridProducts.KeyDown += new System.Windows.Forms.KeyEventHandler(this.OnKeyDownGrid);
+            // 
+            // _bsProducts
+            // 
+            this._bsProducts.AllowNew = false;
+            this._bsProducts.DataSource = typeof(Nile.Product);
             // 
             // nameDataGridViewTextBoxColumn
             // 
@@ -219,32 +218,6 @@ namespace Nile.Windows
             this.idDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.idDataGridViewTextBoxColumn.Visible = false;
             // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "DiscountedPrice";
-            this.Column1.HeaderText = "Column1";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "DiscountedPrice";
-            this.Column2.HeaderText = "Column2";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "DiscountedPrice";
-            this.Column3.HeaderText = "Column3";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
-            // _bsProducts
-            // 
-            this._bsProducts.AllowNew = false;
-            this._bsProducts.DataSource = typeof(Nile.Product);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -277,16 +250,13 @@ namespace Nile.Windows
         private System.Windows.Forms.ToolStripMenuItem _miProductDelete;
         private System.Windows.Forms.DataGridView _gridProducts;
         private System.Windows.Forms.BindingSource _bsProducts;
+        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn isDiscontinuedDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
     }
 }
 

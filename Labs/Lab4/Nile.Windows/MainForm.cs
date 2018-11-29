@@ -177,6 +177,8 @@ namespace Nile.Windows
                                                                ConfigurationManager.ConnectionStrings["ProductDatabase"].ConnectionString
                                                                );
         #endregion
+
+       
     }
 
 }
