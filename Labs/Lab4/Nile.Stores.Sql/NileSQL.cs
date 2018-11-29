@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Nile.Stores.Sql
 {
-    public class NileSQL : Product
+    public class NileSql : Product
     {
 
         public int Id { get; set; }

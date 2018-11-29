@@ -8,9 +8,9 @@ using System.Linq;
 
 namespace Nile.Stores.Sql
 {
-    public class NileSQLDatabase : ProductDatabase
+    public class NileSqlDatabase : ProductDatabase
     {
-        public NileSQLDatabase(string connectionString)
+        public NileSqlDatabase(string connectionString)
         {
             // Validate
             if (connectionString == null)
@@ -65,7 +65,7 @@ namespace Nile.Stores.Sql
             var products = new List<Product>();
             foreach (var row in table.Rows.OfType<DataRow>())
             {
-                var product = new NileSQL()
+                var product = new NileSql()
                 {
                     Id = Convert.ToInt32(row["Id"]),
                     Name = row.Field<string>("Name"),
@@ -116,7 +116,7 @@ namespace Nile.Stores.Sql
 
         private object GetProductId(Product product)
         {
-            var sql = product as NileSQL;
+            var sql = product as NileSql;
 
             return sql?.Id ?? 0;
         }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Nile
 {
-   public  class ObjectValidator
+   public  static class ObjectValidator
    {
 
         /// <summary>Validates an object.</summary>
@@ -19,6 +19,13 @@ namespace Nile
             var context = new ValidationContext(value);
             Validator.TryValidateObject(value, context, results, true);
             return results;
+        }
+
+        public static void Validate(IValidatableObject value)
+        {
+            var context = new ValidationContext(value);
+
+            Validator.ValidateObject(value, context, true);
         }
 
     }
