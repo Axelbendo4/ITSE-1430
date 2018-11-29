@@ -18,14 +18,6 @@ namespace Nile.Stores
             var newProduct = CopyProduct(product);
 
 
-            foreach (var comProduct in _products)
-            {
-                if (String.Compare(comProduct.Name, newProduct.Name, true) == 0) //Does Product already exist?
-                    throw new DuplicateNameException("Duplicate Name");
-            };
-
-
-
 
             _products.Add(newProduct);
 

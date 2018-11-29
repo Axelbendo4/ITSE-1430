@@ -4,6 +4,7 @@
 using System;
 using System.ComponentModel;
 using System.Windows.Forms;
+using System.ComponentModel.DataAnnotations;
 
 namespace Nile.Windows
 {
@@ -68,17 +69,20 @@ namespace Nile.Windows
                 IsDiscontinued = _chkDiscontinued.Checked,
             };
 
-            var results = ObjectValidator.TryValidate(product);
-            foreach (var result in results)
+            try
             {
-                MessageBox.Show(this, result.ErrorMessage, "Validation Failed", MessageBoxButtons.OK);
+                product.Validate(new ValidationContext(product));
+            }
+            catch (ValidationException ex)
+            {
+                MessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK);
                 return;
-            };
-        
+            }
 
-          //TODO: Validate product
 
-             Product = product;
+            //TODO: Validate product
+
+            Product = product;
             DialogResult = DialogResult.OK;
             Close();
         }
