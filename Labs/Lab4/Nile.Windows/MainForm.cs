@@ -44,10 +44,10 @@ namespace Nile.Windows
 
             try
             {
-
-            //Save product
-            _database.Add(child.Product);
-            UpdateList();
+                //TODO: Handle errors
+                //Save product
+                _database.Add(child.Product);
+                   UpdateList();
             }catch (Exception ex)
             {
                 MessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK);
@@ -123,11 +123,11 @@ namespace Nile.Windows
 
             try
             {
-
-            //Delete product
-            _database.Remove(product.Id);
+                //TODO: Handle errors
+                //Delete product
+                _database.Remove(product.Id);
                 UpdateList();
-            }catch (ArgumentException ex)
+            }         catch (ArgumentException ex)
             {
                 MessageBox.Show(this, ex.Message, "Error");
             }
