@@ -144,9 +144,9 @@ namespace Nile.Windows
             {
 
             //Save product
-            _database.Update(child.Product);
-            UpdateList();
-            }catch (Exception ex)
+                     _database.Update(child.Product);
+                          UpdateList();
+            }         catch (Exception ex)
             {
                 MessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK);
             }
@@ -165,7 +165,7 @@ namespace Nile.Windows
             try
             {
                 _bsProducts.DataSource = _database.GetAll().OrderBy(p => p.Name);
-            }catch (Exception ex)
+            }               catch (Exception ex)
             {
                 MessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK);
             }
@@ -173,8 +173,7 @@ namespace Nile.Windows
 
        
 
-        private readonly IProductDatabase _database = new Nile.Stores.Sql.NileSqlDatabas(
-                                                               ConfigurationManager.ConnectionStrings["ProductDatabase"].ConnectionString
+        private readonly IProductDatabase _database = new Nile.Stores.Sql.NileSqlDatabas(ConfigurationManager.ConnectionStrings["ProductDatabase"].ConnectionString
                                                                );
         #endregion
 
