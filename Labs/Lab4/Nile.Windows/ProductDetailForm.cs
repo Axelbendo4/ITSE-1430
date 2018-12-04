@@ -4,6 +4,7 @@
 using System;
 using System.ComponentModel;
 using System.Windows.Forms;
+using System.ComponentModel.DataAnnotations;
 
 namespace Nile.Windows
 {
@@ -56,9 +57,8 @@ namespace Nile.Windows
         private void OnSave ( object sender, EventArgs e )
         {
             if (!ValidateChildren())
-            {
-                return;
-            };
+            return;
+            
 
             var product = new Product()
             {
@@ -69,12 +69,25 @@ namespace Nile.Windows
                 IsDiscontinued = _chkDiscontinued.Checked,
             };
 
+            try
+            {
+                product.Validate(new ValidationContext(product));
+            }
+            catch (ValidationException ex)
+            {
+                MessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK);
+                return;
+            }
+
+
             //TODO: Validate product
 
             Product = product;
             DialogResult = DialogResult.OK;
             Close();
         }
+
+
 
         private void OnValidatingName ( object sender, CancelEventArgs e )
         {

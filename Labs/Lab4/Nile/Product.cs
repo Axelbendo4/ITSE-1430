@@ -53,26 +53,17 @@ namespace Nile
             return Name;
         }
 
-        public int[] Sizes
-        {
-            get
-            {
-                var copySizes = new int[_sizes.Length];
-                Array.Copy(_sizes, copySizes, _sizes.Length);
-
-                return copySizes;
-            }
-        }
-
-        private int[] _sizes = new int[4];
-
 
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
+            if (Id < 0)
+                yield return new ValidationResult("Id must have a value >= 0.", new[] { nameof(Id) });
+
             if (String.IsNullOrEmpty(Name))
-                yield return new ValidationResult("Name cannot be empty.", new[] { nameof(Name) });
+                yield return new ValidationResult("The Product must have a name.", new[] { nameof(Name) });
+
             if (Price < 0)
-                yield return new ValidationResult("Price must be >= 0.", new[] { nameof(Price) });
+                yield return new ValidationResult("The Price must be >= 0.", new[] { nameof(Price) });
         }
 
         private string _name;

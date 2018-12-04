@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
+using System.Data.Sql;
 using System.Data.SqlClient;
-using System.Threading.Tasks;
-using System.Linq;
-
 
 namespace Nile.Stores.Sql
 {
@@ -32,10 +29,11 @@ namespace Nile.Stores.Sql
                 SqlCommand cmd = new SqlCommand("AddProduct", conn);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
-                cmd.Parameters.AddRange(new SqlParameter[] { new SqlParameter("@name", newProduct.Name),
-                                                             new SqlParameter("@price", newProduct.Price),
-                                                             new SqlParameter("@description", newProduct.Description),
-                                                             new SqlParameter("@isDiscontinued", newProduct.IsDiscontinued)});
+                cmd.Parameters.AddRange(new SqlParameter[]
+                { new SqlParameter("@name", newProduct.Name),
+                  new SqlParameter("@price", newProduct.Price),
+                  new SqlParameter("@description", newProduct.Description),
+                new SqlParameter("@isDiscontinued", newProduct.IsDiscontinued)});
 
                 conn.Open();
                 if (Int32.TryParse(cmd.ExecuteScalar().ToString(), out prodId))
@@ -59,8 +57,6 @@ namespace Nile.Stores.Sql
 
         return (product != null) ? CopyProduct(product) : null;
     }
-
-
 
 
     protected override IEnumerable<Product> GetAllCore()
@@ -88,8 +84,6 @@ namespace Nile.Stores.Sql
         }
     
 }
-
-       
 
        
         protected override void RemoveCore(int id)
@@ -121,11 +115,12 @@ namespace Nile.Stores.Sql
                 SqlCommand cmd = new SqlCommand("UpdateProduct", conn);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
-                cmd.Parameters.AddRange(new SqlParameter[] { new SqlParameter("@id", newProduct.Id),
-                                                             new SqlParameter("@name", newProduct.Name),
-                                                             new SqlParameter("@price", newProduct.Price),
-                                                             new SqlParameter("@description", newProduct.Description),
-                                                             new SqlParameter("@isDiscontinued", newProduct.IsDiscontinued)});
+                cmd.Parameters.AddRange(new SqlParameter[] 
+                { new SqlParameter("@id", newProduct.Id),
+                  new SqlParameter("@name", newProduct.Name),
+                  new SqlParameter("@price", newProduct.Price),
+                 new SqlParameter("@description", newProduct.Description),
+                 new SqlParameter("@isDiscontinued", newProduct.IsDiscontinued)});
 
                 conn.Open();
                 cmd.ExecuteNonQuery();

@@ -3,6 +3,10 @@
  */
 using System;
 using System.Windows.Forms;
+using System.ComponentModel.DataAnnotations;
+using System.Configuration;
+using System.Linq;
+
 
 namespace Nile.Windows
 {
@@ -38,11 +42,19 @@ namespace Nile.Windows
             if (child.ShowDialog(this) != DialogResult.OK)
                 return;
 
-            //TODO: Handle errors
-            //Save product
-            _database.Add(child.Product);
-            UpdateList();
+            try
+            {
+                //TODO: Handle errors
+                //Save product
+                _database.Add(child.Product);
+                   UpdateList();
+            }catch (Exception ex)
+            {
+                MessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK);
+            }
+
         }
+
 
         private void OnProductEdit( object sender, EventArgs e )
         {
@@ -92,7 +104,12 @@ namespace Nile.Windows
 			//Don't continue with key
             e.SuppressKeyPress = true;
         }
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var about = new AboutBox();
+            about.ShowDialog(this);
 
+        }
         #endregion
 
         #region Private Members
@@ -104,10 +121,16 @@ namespace Nile.Windows
                                 "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
                 return;
 
-            //TODO: Handle errors
-            //Delete product
-            _database.Remove(product.Id);
-            UpdateList();
+            try
+            {
+                //TODO: Handle errors
+                //Delete product
+                _database.Remove(product.Id);
+                UpdateList();
+            }         catch (ArgumentException ex)
+            {
+                MessageBox.Show(this, ex.Message, "Error");
+            }
         }
 
         private void EditProduct ( Product product )
@@ -117,10 +140,16 @@ namespace Nile.Windows
             if (child.ShowDialog(this) != DialogResult.OK)
                 return;
 
-            //TODO: Handle errors
+            try
+            {
+
             //Save product
-            _database.Update(child.Product);
-            UpdateList();
+                     _database.Update(child.Product);
+                          UpdateList();
+            }         catch (Exception ex)
+            {
+                MessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK);
+            }
         }
 
         private Product GetSelectedProduct ()
@@ -133,21 +162,22 @@ namespace Nile.Windows
 
         private void UpdateList ()
         {
-            //TODO: Handle errors
-
-            _bsProducts.DataSource = _database.GetAll();
+            try
+            {
+                _bsProducts.DataSource = _database.GetAll().OrderBy(p => p.Name);
+            }               catch (Exception ex)
+            {
+                MessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK);
+            }
         }
 
-        private readonly IProductDatabase _database = new Nile.Stores.MemoryProductDatabase();
+       
+
+        private readonly IProductDatabase _database = new Nile.Stores.Sql.NileSqlDatabas(ConfigurationManager.ConnectionStrings["ProductDatabase"].ConnectionString
+                                                               );
         #endregion
 
-        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            var about = new AboutBox();
-            about.ShowDialog(this);
-           
-        }
-
+       
     }
-    
+
 }
