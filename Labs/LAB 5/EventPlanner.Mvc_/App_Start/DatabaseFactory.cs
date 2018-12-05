@@ -19,15 +19,15 @@ namespace EventPlanner.Mvc_.App_Start
                     Description = "",
                     Id = 1,
                     Name = "Start Event",
-                    StartDate = new DateTime(2018, 6, 20),
+                    StartDate = new DateTime(2018, 5, 30),
                     EndDate = DateTime.Today,
                     IsPublic = true},
                 new ScheduledEvent(){
-                    Description = "Day Born",
+                    Description = "Celebrating love",
                     Id = 1,
-                    Name = "Birthday",
-                    StartDate = new DateTime(1991, 6, 20),
-                    EndDate = new DateTime(1991, 6, 20),
+                    Name = "Wedding",
+                    StartDate = new DateTime(1997, 5, 30),
+                    EndDate = new DateTime(1997, 5, 30),
                     IsPublic = false},
         });
 
