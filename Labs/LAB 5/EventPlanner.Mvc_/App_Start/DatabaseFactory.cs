@@ -6,9 +6,9 @@ using EventPlanner;
 using EventPlanner.Memory;
 
 
-namespace EventPlanner.Mvc.App_Start
+namespace EventPlanner.Mvc_.App_Start
 {
-    public static  class DatabaseFactory
+    public static class DatabaseFactory
     {
         private static IEventDatabase _databse = new MemoryEventDatabase().SeedDatabase();
 
@@ -19,15 +19,15 @@ namespace EventPlanner.Mvc.App_Start
                     Description = "",
                     Id = 1,
                     Name = "Start Event",
-                    StartDate = new DateTime(2018, 4, 30),
+                    StartDate = new DateTime(2018, 6, 20),
                     EndDate = DateTime.Today,
                     IsPublic = true},
                 new ScheduledEvent(){
-                    Description = "Celebrating love",
+                    Description = "Day Born",
                     Id = 1,
-                    Name = "Wedding",
-                    StartDate = new DateTime(1991, 4, 30),
-                    EndDate = new DateTime(1991, 4, 30),
+                    Name = "Birthday",
+                    StartDate = new DateTime(1991, 6, 20),
+                    EndDate = new DateTime(1991, 6, 20),
                     IsPublic = false},
         });
 
@@ -49,8 +49,6 @@ namespace EventPlanner.Mvc.App_Start
             { return _databse; }
             private set { _databse = value; }
         }
-
-
 
     }
 }
