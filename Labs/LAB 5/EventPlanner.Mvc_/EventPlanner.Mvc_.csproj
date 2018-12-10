@@ -175,6 +175,7 @@
     <Content Include="Views\Event\Create.cshtml" />
     <Content Include="Views\Event\Edit.cshtml" />
     <Content Include="Views\Event\Delete.cshtml" />
+    <Content Include="Views\Event\All.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

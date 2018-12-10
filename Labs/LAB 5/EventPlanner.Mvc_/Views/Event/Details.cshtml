@@ -1,10 +1,10 @@
-﻿@model EventPlanner.ScheduledEventModel
+﻿@model EventPlanner.ScheduledEvent
 
 @{
     ViewBag.Title = "View Event";
 }
 
-<h2>view Event</h2>
+<h2>View Event</h2>
 
 <div>
     
@@ -54,5 +54,5 @@
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "My/public")
+    @Html.ActionLink("Back to List", "my/public")
 </p>

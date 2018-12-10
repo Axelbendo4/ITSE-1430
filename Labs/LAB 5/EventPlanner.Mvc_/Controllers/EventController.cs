@@ -11,8 +11,13 @@ namespace EventPlanner.Mvc_.Controllers
 
     public class EventController : Controller
     {
+        public EventController()
+        {
 
-        // GET: Event
+
+        }
+
+        
         public ActionResult Index()
         {
             return View();
@@ -55,7 +60,7 @@ namespace EventPlanner.Mvc_.Controllers
         }
 
         [HttpGet]
-        public ActionResult Details(int? id)
+        public ActionResult Details(int id)
         {
             ScheduledEvent sEvent = (ScheduledEvent)DatabaseFactory.Database.GetAll(
                 new EventCriteria()
@@ -150,7 +155,7 @@ namespace EventPlanner.Mvc_.Controllers
         }
 
         [HttpGet]
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(int id)
         {
             ScheduledEvent evnt = (ScheduledEvent)DatabaseFactory.Database.GetAll(
                 new EventCriteria()
